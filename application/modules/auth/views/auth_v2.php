@@ -39,8 +39,8 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span> SMS
-                    <small>Welcome to the SMS System</small>
+                    <span class="logo"></span> SMS/Email
+                    <small>Welcome to the SMS/Email Management System</small>
                 </div>
                 <div class="icon">
                     <i class="fa fa-sign-in"></i>
