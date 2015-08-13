@@ -1,0 +1,1 @@
+ALTER TABLE  `notes` ADD  `topic_id` INT NOT NULL ;

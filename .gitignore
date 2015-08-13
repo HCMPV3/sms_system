@@ -1,0 +1,14 @@
+.DS_Store
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+articles/1201506021078548565.txt
+articles/120150602306859632.txt
+articles/120150602669574516.txt
+articles/120150602694489917.txt
+articles/120150602812612157.txt
