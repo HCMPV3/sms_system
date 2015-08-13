@@ -59,7 +59,7 @@
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                             <i class="fa fa-bell-o"></i>
-                            <span class="label">5</span>
+                            <span class="label">2</span>
                         </a>
                         <ul class="dropdown-menu media-list pull-right animated fadeInDown">
                             <li class="dropdown-header">Notifications (2)</li>

@@ -14,7 +14,7 @@
         <div class="col-md-4 col-sm-6">
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
-                <div class="stats-title">Active Users</div>
+                <div class="stats-title">ACTIVE USERS</div>
                 <div class="stats-number">200</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 70.1%;"></div>
