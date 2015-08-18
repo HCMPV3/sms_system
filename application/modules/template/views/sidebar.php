@@ -9,7 +9,7 @@
                 </div>
                 <div class="info">
                     Richard Karsan
-                    <small>Front end developer</small>
+                    <small>System Administrator</small>
                 </div>
             </li>
         </ul>
@@ -18,27 +18,46 @@
         <ul class="nav">
             <li class="nav-header">Navigation</li>
             <li class="has-sub active">
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
+                <a href="<?php echo base_url().'home'; ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Dashboard</span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="active"><a href="<?php echo base_url().'student'; ?>">Dashboard Home</a></li>
-                </ul>
             </li>
             <li class="has-sub">
-                <a href="javascript:;">
-                    <span class="badge pull-right">10</span>
+                <a href="<?php echo base_url().'messages'; ?>">
                     <i class="fa fa-inbox"></i> 
                     <span>Messages</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="<?php echo base_url().'student/student_inbox'; ?>">Inbox</a></li>
-                    <li><a href="email_compose.html">Compose</a></li>
-                    <li><a href="email_detail.html">Detail</a></li>
-                </ul>
             </li>
+
+            <li class="has-sub">
+                <a href="<?php echo base_url().'sms'; ?>">
+                    <i class="fa fa-envelope-o"></i> 
+                    <span>SMS</span>
+                </a>
+            </li>
+
+            <li class="has-sub">
+                <a href="<?php echo base_url().'mail'; ?>">
+                    <i class="fa fa-envelope"></i> 
+                    <span>E-mail</span>
+                </a>
+            </li>
+
+            <li class="has-sub">
+                <a href="<?php echo base_url().'users'; ?>">
+                    <i class="fa fa-users"></i> 
+                    <span>Recepient Management</span>
+                </a>
+            </li>
+
+            <li class="has-sub">
+                <a href="<?php echo base_url().'users'; ?>">
+                    <i class="fa fa-user-plus"></i> 
+                    <span>User Management</span>
+                </a>
+            </li>
+
             <!--
             <li class="has-sub">
                 <a href="javascript:;">

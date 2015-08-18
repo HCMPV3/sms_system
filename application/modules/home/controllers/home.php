@@ -1,21 +1,15 @@
-<?php
-// if(!defined(BASEPATH)) exit('No direct script access allowed');
-/**
-*  Author:
-*/
-class Home extends MY_Controller
-{
-	
-	function __construct()
-	{
-		parent::__construct();
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Home extends MY_Controller {
+	function __construct(){
+		parent:: __construct();
+		// $this -> load ->model('student_model');
+		// $this -> load -> module("template");
 	}
 
 	public function index()
-	{
-		// echo "I WORK";exit;
-		$data['content'] = 'home_default';
-		$this ->load ->view('home_template',$data);
+	{	
+		$this -> template ->call_admin_template();
 	}
+
 }
-?>

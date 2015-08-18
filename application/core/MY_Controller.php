@@ -4,6 +4,7 @@ if (!defined('BASEPATH')) exit('No direct access to script allowed');
 /**
 * 
 */
+require APPPATH."third_party/MX/Controller.php";
 class MY_Controller extends MX_Controller
 {
 	
@@ -11,11 +12,13 @@ class MY_Controller extends MX_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->module("template");
-		$this->load->module("notes");
-       
+		$this->load->module("template");  
+		// error_reporting(1);     
 	}
 	
+	public function index(){
+		
+	}
 
 	public function encrypt($data){
 		$key = $this -> encrypt -> get_key();
