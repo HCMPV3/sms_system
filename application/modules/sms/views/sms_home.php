@@ -6,12 +6,24 @@
 <div class="content">
     <div class="panel-body">
         <div class="table-responsive col-md-7">
-            <table id="data-table" class="table">
+            <table class="table">
             <thead>
                 <th></th>
                 <th></th>
             </thead>
                 <tbody>
+                <tr class="col-md-12">
+                    <td>Recepients Category: </td>
+                    <td>
+                        <select class="form-control" id="category" required = "required">
+                                <option>Select a Category</option>
+                                <option value="all"><b>All categories</b></option>
+                            <?php foreach ($categories as $key) {?>
+                            <option value="<?php echo $key['id']; ?>"><?php echo $key['category']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
                     <tr class="col-md-12">
                         <td class="col-md-3">Message</td>
                         <td class="col-md-9">
@@ -29,10 +41,14 @@
             </table>
         </div>
         <div class="col-md-5">
-            <table class="table table-bordered previous_messages">
+                    <h4>Previous Messages</h4>
+            <table class="table table-bordered previous_messages" id="data-table">
                 <thead>
-                    <tr><td colspan="2"><h4>Previous Messages</h4></td></tr>
-                    <tr><td class="col-md-8"><h6>Content</h6></td><td class="col-md-4"><h6>Date</h6></td></tr>
+                    <tr>
+                    <th class="col-md-8">Content</th>
+                    <th class="col-md-4">Date Sent</th>
+                    <th class="col-md-4">Category Sent To</th>
+                    </tr>
                 </thead>
                 <tbody>
                 <?php 
@@ -40,6 +56,13 @@
                         echo "<tr>";
                         echo "<td>".$key['sms_content']."</td>";
                         echo "<td>".$key['date_sent']."</td>";
+                        echo "<td>";
+                        if ($key['category'] =='') {
+                            echo "All Categories";
+                        }else{
+                            echo $key['category'];
+                        }
+                        echo "</td>";
                         echo "</tr>";
                     }
                  ?>
@@ -51,9 +74,12 @@
 
 <script>
 $(document).ready(function(){
+    // $("#data-table").dataTable();
+    $('#data-table').DataTable();
     $(".send_sms").click(function(){
     var sms_body = $("#sms_message").val();
-    // alert(sms_body);return;
+    var category = $("#category").val();
+    // alert(category);return;
     if ($("#sms_message").val() == '' ) {
         $(".send_sms").html('<i class="fa fa-exclamation"></i> Send SMS ');
         $(".empty_warning").html('<i class="fa fa-exclamation"></i> Kindly enter a message to send ');
@@ -65,7 +91,8 @@ $(document).ready(function(){
         type: "POST",
         url:'sms/send_sms',
         data:{
-            sms_body:sms_body
+            sms_body:sms_body,
+            category:category
         },
         beforeSend : function(){
             $(".send_sms").html('<i class="fa fa-cog fa-spin"></i> Sending SMS ');
@@ -74,6 +101,7 @@ $(document).ready(function(){
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');
+            location.reload();
         }
     });//end of ajax
     }//end of else

@@ -7,13 +7,53 @@ class Users extends MY_Controller{
 
 	public function index(){
 		$data['content'] = 'users/users_v';
-		$data['user_data'] = $this->m_users->get_members();
+		$data['user_data'] = $this->m_users->get_recepients();
 		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
 	public function view_users(){
-		
+		$data['content'] = 'users/recepients_v';
+		$data['user_data'] = $this->m_users->get_recepients();
+		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
+		$this ->template->call_admin_template($data);
+	}
+
+	public function recepients(){
+		$data['content'] = 'users/recepients_v';
+		$data['user_data'] = $this->m_users->get_recepients();
+		$data['category_data'] = $this->m_users->get_categories();
+		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
+		$this ->template->call_admin_template($data);
+	}
+
+	public function members(){
+		$data['content'] = 'users/users_v';
+		$data['user_data'] = $this->m_users->get_users();
+		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
+		$this ->template->call_admin_template($data);
+	}
+
+	public function categories($status = NULL){
+		$data['content'] = 'users/category_v';
+		$data['category_data'] = $this->m_users->get_categories();
+		// echo "<pre>";print_r($data['category_data']);echo "</pre>";exit;
+		$this ->template->call_admin_template($data);
+	}
+
+	public function add_category(){
+		$category_name = $this -> input-> post('category');
+		// echo $category_name;exit;
+		$insertion = array();
+		$insertion_data = array(
+			'category'=> $category_name
+			);
+
+		array_push($insertion, $insertion_data);
+
+		$this -> db -> insert_batch('categories',$insertion);
+
+		redirect('users/categories');
 	}
 
 	public function add_user(){
@@ -26,7 +66,7 @@ class Users extends MY_Controller{
 		$phone_no = $this->input->post('phone_no');
 		$sms_recieve = $this->input->post('sms_recieve');
 		$email_recieve = $this->input->post('email_recieve');
-		$user_type = $this->input->post('user_type');
+		$category = $this->input->post('category');
 
 		$userinfo = array();
 			$user_info = array(
@@ -36,27 +76,26 @@ class Users extends MY_Controller{
 				 );
 			array_push($userinfo, $user_info);
 
-			$insertion = $this ->db->insert_batch('users',$userinfo);
+			// $insertion = $this ->db->insert_batch('users',$userinfo);
 
 		$user_id = mysql_insert_id();
 		// $user_id = 4;
 		$minfo = array();
 		$member_info = array(
-			'user_id'=>$user_id,
 			'fname' => $fname,
 			'lname' => $lname,
 			'email' => $email,
 			'phone_no' => $phone_no,
 			'sms_status' => $sms_recieve,
 			'email_status' => $email_recieve,
-			'user_type' => 1
+			'category_id' => $category
 			 );
 		array_push($minfo, $member_info);
 
 		// echo "<pre>";print_r($minfo);exit;
 		$insertion = $this ->db->insert_batch('recepients',$minfo);
 		
-		redirect(base_url().'users');
+		redirect(base_url().'users/recepients');
 	}
 
 	public function change_status($status,$type,$member){
@@ -100,7 +139,7 @@ class Users extends MY_Controller{
 				break;
 		}//status switch
 
-		redirect(base_url().'users');
+		redirect(base_url().'users/recepients');
 	}
 }
 ?>

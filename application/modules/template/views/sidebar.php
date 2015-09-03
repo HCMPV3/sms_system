@@ -23,12 +23,15 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+
+            <!--             
             <li class="has-sub">
                 <a href="<?php echo base_url().'messages'; ?>">
                     <i class="fa fa-inbox"></i> 
                     <span>Messages</span>
                 </a>
-            </li>
+            </li> 
+            -->
 
             <li class="has-sub">
                 <a href="<?php echo base_url().'sms'; ?>">
@@ -36,25 +39,32 @@
                     <span>SMS</span>
                 </a>
             </li>
-
+<!-- 
             <li class="has-sub">
                 <a href="<?php echo base_url().'mail'; ?>">
                     <i class="fa fa-envelope"></i> 
                     <span>E-mail</span>
                 </a>
             </li>
-
+ -->
             <li class="has-sub">
-                <a href="<?php echo base_url().'users'; ?>">
+                <a href="<?php echo base_url().'users/recepients'; ?>">
                     <i class="fa fa-users"></i> 
                     <span>Recepient Management</span>
                 </a>
             </li>
 
             <li class="has-sub">
-                <a href="<?php echo base_url().'users'; ?>">
+                <a href="<?php echo base_url().'users/members'; ?>">
                     <i class="fa fa-user-plus"></i> 
                     <span>User Management</span>
+                </a>
+            </li>
+
+            <li class="has-sub">
+                <a href="<?php echo base_url().'users/categories'; ?>">
+                    <i class="fa fa-user-plus"></i> 
+                    <span>Category Management</span>
                 </a>
             </li>
 

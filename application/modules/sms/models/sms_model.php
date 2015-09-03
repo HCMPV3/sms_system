@@ -11,7 +11,15 @@ class Sms_model extends MY_Model
 	}
 
 	public function get_messages($user_id = NULL){
-		$query = "SELECT * FROM sms_messages";
+		$query = "SELECT 
+					    s.sms_id,
+					    s.sms_content,
+					    s.date_sent,
+						c.category
+					FROM
+					    sms_messages s
+					    LEFT JOIN 
+					    categories c ON c.id = s.category_id";
 
 		$result = $this->db->query($query);
 		
