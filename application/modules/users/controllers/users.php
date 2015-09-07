@@ -56,6 +56,12 @@ class Users extends MY_Controller{
 		redirect('users/categories');
 	}
 
+	public function delete_category($category_id){
+		$query = $this->db->query("DELETE FROM categories WHERE id = $category_id");
+
+		redirect('users/categories');
+	}
+
 	public function add_user(){
 		$results = $this ->input->post();
 		// echo "<pre>";print_r($results);echo "</pre>";exit;

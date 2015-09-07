@@ -28,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <th>Category Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,8 +37,10 @@
                                     foreach ($category_data as $key) {
                                         echo "<tr>";
                                          echo "<td>".$key['category']."</td>";
+                                         echo "<td><a class=\"btn btn-sm btn-success\" href=".base_url().'users/delete_category/'.$key['id'].">Delete Category</a></td>";
                                         echo "</tr>";
                                      } ?>
+
                             </tbody>
                         </table>
                     </div>

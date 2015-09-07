@@ -48,9 +48,7 @@
                 <div class="navbar-header">
                     <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>Admin Dashboard</a>
                     <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <i class="fa fa-bars" style="font-size:15px;"></i>
                     </button>
                 </div>
                 <!-- end mobile sidebar expand / collapse button -->
@@ -154,7 +152,6 @@
     <script src="<?php echo base_url().'assets/template/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/plugins/gritter/js/jquery.gritter.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/js/dashboard-v2.min.js';?>"></script>
-    <script src="<?php echo base_url().'assets/template/js/apps.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/js/apps.min.js';?>"></script>
     
 
