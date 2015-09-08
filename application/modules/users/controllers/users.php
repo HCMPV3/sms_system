@@ -104,17 +104,44 @@ class Users extends MY_Controller{
 		redirect(base_url().'users/recepients');
 	}
 
+	public function add_admin(){
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+
+		$user_info = array();
+		$user_info_ = array(
+			'email'=> $email,
+			'password'=>md5($password),
+			'status'=>1
+			);
+
+		array_push($user_info, $user_info_);
+
+		$this->db->insert_batch('users',$user_info);
+
+		redirect(base_url().'users/members');
+
+	}
+
+	public function reset_password($id){
+		$pwd = md5(123456);
+		$query = "UPDATE `users` SET `password`= '$pwd' WHERE `user_id`= $id";
+		$this->db->query($query);
+
+		redirect(base_url().'users/members');
+	}
+
 	public function change_status($status,$type,$member){
 		switch ($status) {
 			case 'activate':
 				switch ($type) {
 					case 'sms':
-						$query = "UPDATE `recepients` SET `sms_status` = '1' WHERE `recipient_id` = $member";
+						$query = "UPDATE `recepients` SET `sms_status` = '1' WHERE `recepient_id` = $member";
 						$this->db->query($query);
 						// return true;
 						break;
 					case 'email':
-						$query = "UPDATE `recepients` SET `email_status` = '1' WHERE `recipient_id` = $member";
+						$query = "UPDATE `recepients` SET `email_status` = '1' WHERE `recepient_id` = $member";
 						$this->db->query($query);
 						// return true;
 						break;
@@ -122,16 +149,17 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
+				$redirect_url = 'users/recepients';
 				break;
 			case 'deactivate':
 				switch ($type) {
 					case 'sms':
-						$query = "UPDATE `recepients` SET `sms_status` = '2' WHERE `recipient_id` = $member";
+						$query = "UPDATE `recepients` SET `sms_status` = '2' WHERE `recepient_id` = $member";
 						$this->db->query($query);
 						// return true;
 						break;
 					case 'email':
-						$query = "UPDATE `recepients` SET `email_status` = '2' WHERE `recipient_id` = $member";
+						$query = "UPDATE `recepients` SET `email_status` = '2' WHERE `recepient_id` = $member";
 						$this->db->query($query);
 						// return true;
 						break;
@@ -139,13 +167,33 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
+				$redirect_url = 'users/recepients';
+
+				break;
+			case 'users':
+				switch ($type) {
+					case 'active':
+						$query = "UPDATE `users` SET `status`='2' WHERE user_id = $member";
+						$this->db->query($query);
+						// return true;
+						break;
+					case 'inactive':
+						$query = "UPDATE `users` SET `status`='1' WHERE user_id = $member";
+						$this->db->query($query);
+						// return true;
+						break;
+					default:
+						# code...
+						break;
+				}//nested switch,for type
+				$redirect_url = 'users/members';
 				break;
 			default:
 				# code...
 				break;
 		}//status switch
 
-		redirect(base_url().'users/recepients');
+		redirect(base_url().$redirect_url);
 	}
 }
 ?>

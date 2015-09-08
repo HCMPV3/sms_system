@@ -29,6 +29,7 @@
                                 <tr>
                                     <th>First Name</th>
                                     <th>Last Name</th>
+                                    <th>Category</th>
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Email Recieval</th>
@@ -36,7 +37,6 @@
                                     <th>SMS Recieval</th>
                                     <th>Action SMS</th>
                                     <th>Date added</th>
-                                    <th>Category</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,37 +46,36 @@
                                         echo "<tr>";
                                          echo "<td>".$key['fname']."</td>";
                                          echo "<td>".$key['lname']."</td>";
+                                         echo "<td>".$key['category']."</td>";
                                          echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
                                          if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/activate/email/'.$key['recipient_id'].">Activate Email Recieval</a>
+                                                <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
                                                 </td>";
                                          }elseif($key['email_status'] == 1){
                                          echo "<td>Yes</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/deactivate/email/'.$key['recipient_id'].">Deactivate Email Recieval</a>
+                                                <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
                                                 </td>";
                                          }
 
                                          if ($key['sms_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recipient_id'].">Activate SMS Recieval</a>
+                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate SMS Recieval</a>
                                                 </td>";
                                          }elseif($key['sms_status'] == 1){
                                          echo "<td>Yes</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recipient_id'].">Deactivate SMS Recieval</a>
+                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate SMS Recieval</a>
                                                 </td>";
                                          }
 
                                          echo "<td>".$key['created_at']."</td>";
-                                         echo "<td>".$key['category']."</td>";
                                         echo "</tr>";
                                      } ?>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -89,7 +88,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Add User</h4>
+                        <h4 class="modal-title">Add Recepient</h4>
                     </div>
                     <div class="modal-body">
                         <?php 
@@ -167,7 +166,7 @@
                     </div>
                     <div class="footer">
                         <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
-                        <button type="submit" href="javascript:;" class="btn btn-sm btn-success submit">Submit</button>
+                        <button type="submit" class="btn btn-sm btn-success submit">Submit</button>
                     </div>
                         <?php echo form_close(); ?>
                 </div>
@@ -179,8 +178,9 @@
 
 <script>
     $(document).ready(function(){
+        $('#data-table').DataTable();
         $(".submit").click(function(){
-            $('#add_users_form').submit();
+            // $('#add_users_form').submit();
         });
     });
 </script>

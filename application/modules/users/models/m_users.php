@@ -13,7 +13,7 @@ class M_users extends MY_Model
 	public function get_recepients(){
 		$query = "
 			SELECT 
-				r.recipient_id,
+				r.recepient_id,
 			    r.fname,
 			    r.lname,
 			    r.email,
