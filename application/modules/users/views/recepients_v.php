@@ -27,8 +27,9 @@
                         <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
                             <thead>
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Full Names</th>
+                                    <!-- <th>Last Name</th> -->
+                                    <th>District</th>
                                     <th>Category</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -45,7 +46,8 @@
                                     foreach ($user_data as $key) {
                                         echo "<tr>";
                                          echo "<td>".$key['fname']."</td>";
-                                         echo "<td>".$key['lname']."</td>";
+                                         echo "<td>".$key['district']."</td>";
+                                         // echo "<td>".$key['lname']."</td>";
                                          echo "<td>".$key['category']."</td>";
                                          echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";

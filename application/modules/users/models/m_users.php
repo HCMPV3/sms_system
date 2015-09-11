@@ -23,11 +23,14 @@ class M_users extends MY_Model
 			    r.created_at,
 			    r.user_type,
 			    c.id,
-			    c.category
+			    c.category,
+                d.district
 			FROM
 			    recepients r
 			        JOIN
 			    categories c ON c.id = r.category_id
+					JOIN
+				districts d ON d.id = r.district_id
 		";
 		$result = $this->db->query($query);
 		return $result -> result_array();
