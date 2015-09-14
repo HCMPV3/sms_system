@@ -46,7 +46,7 @@
             <div class="container-fluid">
                 <!-- begin mobile sidebar expand / collapse button -->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span>Admin Dashboard</a>
+                    <a href="<?php echo base_url().'home'; ?>" class="navbar-brand"><span class="navbar-logo"></span>Admin Dashboard</a>
                     <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                         <i class="fa fa-bars" style="font-size:15px;"></i>
                     </button>
@@ -103,7 +103,7 @@
                             <!-- <li><a href="javascript:;">Calendar</a></li> -->
                             <!-- <li><a href="javascript:;">Setting</a></li> -->
                             <li class="divider"></li>
-                            <li><a href="javascript:;">Log Out</a></li>
+                            <li><a href="<?php echo base_url(); ?>">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
