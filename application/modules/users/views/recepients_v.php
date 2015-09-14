@@ -31,7 +31,7 @@
                                     <!-- <th>Last Name</th> -->
                                     <th>District</th>
                                     <th>Category</th>
-                                    <th>Email</th>
+                                    <!-- <th>Email</th> -->
                                     <th>Phone</th>
                                     <!-- <th>Email Recieval</th> -->
                                     <!-- <th>Action Email</th> -->
@@ -49,7 +49,7 @@
                                          echo "<td>".$key['district']."</td>";
                                          // echo "<td>".$key['lname']."</td>";
                                          echo "<td>".$key['category']."</td>";
-                                         echo "<td>".$key['email']."</td>";
+                                         // echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
                                       /*   if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
@@ -153,9 +153,9 @@
                                         </table>
                                          -->
                                     </tr>
-                                    <tr>
-                                        <td><label>Category Selection</label></td>
-                                        <td>
+                                    <tr class="col-md-12">
+                                        <td class="col-md-6"><label><b>Category Selection</b></label></td>
+                                        <td class="col-md-6">
                                             <select class="form-control" id="category" required = "required" name="category">
                                                     <option>Select a Category</option>
                                                     <?php foreach ($category_data as $key) {?>
@@ -166,19 +166,19 @@
                                     </tr>
 
                                     <tr>
-                                        <td><label>User Type</label></td>
+                                        <td><label><b>User Type</b></label></td>
                                         <td>
                                             <select class="form-control" id="usertypes" required = "required" name="usertypes">
-                                                    <option>Select a District</option>
+                                                    <option>Select a User Type</option>
                                                     <?php foreach ($usertypes as $key) {?>
-                                                    <option value="<?php echo $key['id']; ?>"><?php echo $key['usertypes']; ?></option>
+                                                    <option value="<?php echo $key['id']; ?>"><?php echo $key['user_type']; ?></option>
                                                     <?php } ?>
                                             </select>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td><label>District Selection:</label></td>
+                                        <td><label><b>District Selection</b></label></td>
                                         <td>
                                             <select class="form-control" id="district" required = "required" name="district">
                                                     <option>Select a District</option>

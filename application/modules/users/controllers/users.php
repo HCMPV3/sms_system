@@ -26,7 +26,7 @@ class Users extends MY_Controller{
 		$data['district_data'] = $this->m_users->get_districts();
 		$data['usertypes'] = $this->m_users->get_usertypes();
 		$data['active'] = 'recipients';
-		// echo "<pre>";print_r($data['district_data']);echo "</pre>";exit;
+		// echo "<pre>";print_r($data['usertypes']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
@@ -100,7 +100,7 @@ class Users extends MY_Controller{
 			// 'email' => $email,
 			'phone_no' => $phone_no,
 			'sms_status' => $sms_recieve,
-			'email_status' => $email_recieve,
+			// 'email_status' => $email_recieve,
 			'category_id' => $category,
 			'district_id' => $district,
 			'user_type' => $usertypes
