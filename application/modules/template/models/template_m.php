@@ -35,13 +35,13 @@ class Template_m extends MY_Model
 		return $result-> result_array();
 	}
 
-	public function get_all_recieving_emails(){
+	/*public function get_all_recieving_emails(){
 		$query = "SELECT COUNT(recepient_id) AS recieving_emails FROM recepients WHERE email_status = 1";
 
 		$result = $this -> db->query($query);
 
 		return $result-> result_array();
-	}
+	}*/
 
 	public function get_all_recieving_sms(){
 		$query = "SELECT COUNT(recepient_id) AS recieving_sms FROM recepients WHERE sms_status = 1";

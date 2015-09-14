@@ -19,17 +19,21 @@ class Users extends MY_Controller{
 		$this ->template->call_admin_template($data);
 	}
 
-	public function recepients(){
+	public function recipients(){
 		$data['content'] = 'users/recepients_v';
 		$data['user_data'] = $this->m_users->get_recepients();
 		$data['category_data'] = $this->m_users->get_categories();
-		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
+		$data['district_data'] = $this->m_users->get_districts();
+		$data['usertypes'] = $this->m_users->get_usertypes();
+		$data['active'] = 'recipients';
+		// echo "<pre>";print_r($data['district_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
 	public function members(){
 		$data['content'] = 'users/users_v';
 		$data['user_data'] = $this->m_users->get_users();
+		$data['active'] = 'users';
 		// echo "<pre>";print_r($data['user_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
@@ -37,6 +41,7 @@ class Users extends MY_Controller{
 	public function categories($status = NULL){
 		$data['content'] = 'users/category_v';
 		$data['category_data'] = $this->m_users->get_categories();
+		$data['active'] = 'categories';
 		// echo "<pre>";print_r($data['category_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
@@ -73,6 +78,8 @@ class Users extends MY_Controller{
 		$sms_recieve = $this->input->post('sms_recieve');
 		$email_recieve = $this->input->post('email_recieve');
 		$category = $this->input->post('category');
+		$district = $this->input->post('district');
+		$usertypes = $this->input->post('usertypes');
 
 		$userinfo = array();
 			$user_info = array(
@@ -90,18 +97,20 @@ class Users extends MY_Controller{
 		$member_info = array(
 			'fname' => $fname,
 			'lname' => $lname,
-			'email' => $email,
+			// 'email' => $email,
 			'phone_no' => $phone_no,
 			'sms_status' => $sms_recieve,
 			'email_status' => $email_recieve,
-			'category_id' => $category
+			'category_id' => $category,
+			'district_id' => $district,
+			'user_type' => $usertypes
 			 );
 		array_push($minfo, $member_info);
 
 		// echo "<pre>";print_r($minfo);exit;
 		$insertion = $this ->db->insert_batch('recepients',$minfo);
 		
-		redirect(base_url().'users/recepients');
+		redirect(base_url().'users/recipients');
 	}
 
 	public function add_admin(){

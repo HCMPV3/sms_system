@@ -16,10 +16,10 @@
     <div class="row">
         <div class="col-md-12">
             <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
-            <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recepient</a>
+            <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recipient</a>
             <div class="panel-new panel-inverse">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Recepients</h4>
+                    <h4 class="panel-title">Recipients</h4>
                 </div>
                 <div class="panel-new panel-body">
                     <div class="table-responsive">
@@ -33,10 +33,10 @@
                                     <th>Category</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Email Recieval</th>
-                                    <th>Action Email</th>
+                                    <!-- <th>Email Recieval</th> -->
+                                    <!-- <th>Action Email</th> -->
                                     <th>SMS Recieval</th>
-                                    <th>Action SMS</th>
+                                    <th>Action</th>
                                     <th>Date added</th>
                                 </tr>
                             </thead>
@@ -51,7 +51,7 @@
                                          echo "<td>".$key['category']."</td>";
                                          echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
-                                         if ($key['email_status'] == 2) {
+                                      /*   if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
                                                 <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
@@ -61,7 +61,7 @@
                                                 <td>
                                                 <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
                                                 </td>";
-                                         }
+                                         }*/
 
                                          if ($key['sms_status'] == 2) {
                                          echo "<td>No</td>
@@ -90,7 +90,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Add Recepient</h4>
+                        <h4 class="modal-title">Add recipient</h4>
                     </div>
                     <div class="modal-body">
                         <?php 
@@ -114,10 +114,12 @@
                                         <td><label for="fname">Last Name</label></td>
                                         <td><input type="text" name="lname" class="form-control lname" id="lname"required = "required"/></td>
                                     </tr>
+                                    <!--                                     
                                     <tr>
                                         <td><label for="email">Email</label></td>
                                         <td><input type="email" name="email" class="form-control email" id="email"required = "required"/></td>
-                                    </tr>
+                                    </tr> 
+                                    -->
                                     <tr>
                                         <td><label for="phone_no">Phone No</label></td>
                                         <td> <input type="number" name="phone_no" class="form-control phone_no" id="phone_no"required = "required"/></td>
@@ -135,7 +137,7 @@
                                             <td><input type="radio" name="sms_recieve" value="2" required = "required"/></td>
                                         </tr>
                                     </table>
-                                        
+                                        <!-- 
                                     <table class="table table-bordered">
                                         <tr>
                                             <th colspan="2"><label for="email_recieve">Recieve Emails</label></th>
@@ -149,6 +151,7 @@
                                             <td><input type="radio" name="email_recieve" value="2" required = "required"/></td>
                                         </tr>
                                         </table>
+                                         -->
                                     </tr>
                                     <tr>
                                         <td><label>Category Selection</label></td>
@@ -157,6 +160,30 @@
                                                     <option>Select a Category</option>
                                                     <?php foreach ($category_data as $key) {?>
                                                     <option value="<?php echo $key['id']; ?>"><?php echo $key['category']; ?></option>
+                                                    <?php } ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><label>User Type</label></td>
+                                        <td>
+                                            <select class="form-control" id="usertypes" required = "required" name="usertypes">
+                                                    <option>Select a District</option>
+                                                    <?php foreach ($usertypes as $key) {?>
+                                                    <option value="<?php echo $key['id']; ?>"><?php echo $key['usertypes']; ?></option>
+                                                    <?php } ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><label>District Selection:</label></td>
+                                        <td>
+                                            <select class="form-control" id="district" required = "required" name="district">
+                                                    <option>Select a District</option>
+                                                    <?php foreach ($district_data as $key) {?>
+                                                    <option value="<?php echo $key['id']; ?>"><?php echo $key['district']; ?></option>
                                                     <?php } ?>
                                             </select>
                                         </td>

@@ -92,8 +92,9 @@
                     </li>
                     <li class="dropdown navbar-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo base_url().'assets/images/developers/richard.jpg'; ?>" alt="" /> 
-                            <span class="hidden-xs">Richard Karsan</span> <b class="caret"></b>
+                        <i style="font-size: 15px;color:#00acac;" class="fa fa-user"></i>
+                            <!-- <img src="<?php echo base_url().'assets/images/developers/richard.jpg'; ?>" alt="" />  -->
+                            <span class="hidden-xs">System Administrator</span> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu animated fadeInLeft">
                             <li class="arrow"></li>

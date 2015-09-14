@@ -1,3 +1,4 @@
+<?php //echo "<pre>";print_r($recipients);echo "</pre>";exit; ?>
 <style>
     .previous_messages{
         background: #FFFFFF;
@@ -5,7 +6,7 @@
 </style>
 <div class="content">
     <div class="panel-body">
-        <div class="table-responsive col-md-6">
+        <div class="table-responsive col-md-12">
             <table class="table">
             <thead>
                 <th></th>
@@ -13,27 +14,14 @@
             </thead>
                 <tbody>
                 <tr>
-                    <td>Category: </td>
+                    <td>Recipient: </td>
                     <td>
-                        <select class="form-control" id="category" required = "required">
-                                <option>Select a Category</option>
+                        <select class="form-control" id="recipients" required = "required">
+                                <option>Select a Recipient</option>
                                 <!-- <option value="individual"><b>Individual</b></option> -->
-                                <option value="all"><b>All categories</b></option>
-                            <?php foreach ($categories as $key) {?>
-                            <option value="<?php echo $key['id']; ?>"><?php echo $key['category']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr id="individual_selection_row">
-                    <td>Select Individual</td>
-                    <td>
-                        <select class="form-control" id="category" required = "required">
-                                <option>Select a Category</option>
-                                <option value="individual"><b>Individual Person</b></option>
-                                <option value="all"><b>All categories</b></option>
-                            <?php foreach ($categories as $key) {?>
-                            <option value="<?php echo $key['id']; ?>"><?php echo $key['category']; ?></option>
+                                <!-- <option value="all"><b>All categories</b></option> -->
+                            <?php foreach ($recipients as $key) {?>
+                            <option value="<?php echo $key['recepient_id']; ?>"><?php echo $key['fname']; ?></option>
                             <?php } ?>
                         </select>
                     </td>
@@ -54,6 +42,7 @@
                 </tbody>
             </table>
         </div>
+        <!--
         <div class="col-md-6">
                     <h4>Previous Messages</h4>
             <table class="table table-bordered previous_messages" id="data-table">
@@ -83,6 +72,7 @@
                 </tbody>
             </table>
         </div>
+        -->
     </div>
 </div>
 
@@ -102,7 +92,7 @@ $(document).ready(function(){
     });
     $(".send_sms").click(function(){
     var sms_body = $("#sms_message").val();
-    var category = $("#category").val();
+    var recipients = $("#recipients").val();
     // alert(category);return;
     if ($("#sms_message").val() == '' ) {
         $(".send_sms").html('<i class="fa fa-exclamation"></i> Send SMS ');
@@ -113,19 +103,20 @@ $(document).ready(function(){
     // alert(sms_body);return;
         $.ajax({
         type: "POST",
-        url:'sms/send_sms',
+        url:'<?php echo base_url()."sms/send_sms/individual"; ?>',
         data:{
             sms_body:sms_body,
-            category:category
+            recipients:recipients
         },
         beforeSend : function(){
             $(".send_sms").html('<i class="fa fa-cog fa-spin"></i> Sending SMS ');
         },
         success: function(msg){
+            // alert(msg);return;
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');
-            location.reload();
+            // location.reload();
         }
     });//end of ajax
     }//end of else

@@ -1,3 +1,4 @@
+<?php $active = isset($active)? $active:'dashboard'; ?>
 <div id="sidebar" class="sidebar">
     <!-- begin sidebar scrollbar -->
     <div data-scrollbar="true" data-height="100%">
@@ -5,10 +6,10 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="<?php echo base_url().'assets/images/developers/richard.jpg'; ?>" alt="" /></a>
+                    <a href="javascript:;"><center><i style="font-size: 38px;color:#00acac;" class="fa fa-user"></i></center></a>
                 </div>
                 <div class="info">
-                    Richard Karsan
+                    Admin
                     <small>System Administrator</small>
                 </div>
             </li>
@@ -17,7 +18,7 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            <li class="has-sub active">
+            <li class="has-sub <?php if(isset($active) && $active=='dashboard'){echo "active";}; ?>">
                 <a href="<?php echo base_url().'home'; ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Dashboard</span>
@@ -33,11 +34,16 @@
             </li> 
             -->
 
-            <li class="has-sub">
-                <a href="<?php echo base_url().'sms'; ?>">
+            <li class="has-sub <?php if(isset($active) && $active=='sms'){echo "active";}; ?>">
+                <a href="javascript:;">
+                <b class="caret pull-right"></b>
                     <i class="fa fa-envelope-o"></i> 
                     <span>SMS</span>
                 </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo base_url().'sms/index/category' ?>">To Category</a></li>
+                    <li><a href="<?php echo base_url().'sms/index/individual' ?>">To Individual</a></li>
+                </ul>
             </li>
 <!-- 
             <li class="has-sub">
@@ -47,21 +53,21 @@
                 </a>
             </li>
  -->
-            <li class="has-sub">
-                <a href="<?php echo base_url().'users/recepients'; ?>">
+            <li class="has-sub <?php if(isset($active) && $active=='recipients'){echo "active";}; ?>">
+                <a href="<?php echo base_url().'users/recipients'; ?>">
                     <i class="fa fa-users"></i> 
-                    <span>Recepient Management</span>
+                    <span>Recipient Management</span>
                 </a>
             </li>
 
-            <li class="has-sub">
+            <li class="has-sub <?php if(isset($active) && $active=='users'){echo "active";}; ?>">
                 <a href="<?php echo base_url().'users/members'; ?>">
                     <i class="fa fa-user-plus"></i> 
                     <span>User Management</span>
                 </a>
             </li>
 
-            <li class="has-sub">
+            <li class="has-sub <?php if(isset($active) && $active=='categories'){echo "active";}; ?>">
                 <a href="<?php echo base_url().'users/categories'; ?>">
                     <i class="fa fa-user-plus"></i> 
                     <span>Category Management</span>

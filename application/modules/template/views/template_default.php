@@ -11,10 +11,11 @@
     <!-- begin row -->
     <div class="row">
         <!-- begin col-3 -->
+<!-- 
         <div class="col-md-4 col-sm-6">
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
-                <div class="stats-title">ACTIVE RECEPIENTS</div>
+                <div class="stats-title">ACTIVE RECIPIENTS</div>
                 <div class="stats-number"><?php echo $recepients_count; ?></div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 70.1%;"></div>
@@ -22,8 +23,10 @@
                 <div class="stats-desc">There are <?php echo $recepients_count; ?> users recieving sms/emails</div>
             </div>
         </div>
+         -->
         <!-- end col-3 -->
         <!-- begin col-3 -->
+        <!-- 
         <div class="col-md-4 col-sm-6">
             <div class="widget widget-stats bg-blue">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
@@ -35,10 +38,11 @@
                 <div class="stats-desc">There are <?php echo $emails_count; ?> people recieving email messages</div>
             </div>
         </div>
+ -->
         <!-- end col-3 -->
         <div class="col-md-4 col-sm-6">
             <div class="widget widget-stats bg-purple">
-                <div class="stats-icon stats-icon-lg"><i class="fa fa-shopping-cart fa-fw"></i></div>
+                <div class="stats-icon stats-icon-lg"><i class="fa fa-mobile fa-fw"></i></div>
                 <div class="stats-title">RECIEVING SMS</div>
                 <div class="stats-number"><?php echo $sms_count;?></div>
                 <div class="stats-progress progress">
@@ -82,10 +86,10 @@
                                     <th>Category</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Email</br>Recieval</th>
-                                    <th>Action Email</th>
+                                    <!-- <th>Email</br>Recieval</th> -->
+                                    <!-- <th>Action Email</th> -->
                                     <th>SMS</br>Recieval</th>
-                                    <th>Action SMS</th>
+                                    <th>Action</th>
                                     <th>Date added</th>
                                 </tr>
                             </thead>
@@ -99,7 +103,7 @@
                                          echo "<td>".$key['category']."</td>";
                                          echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
-                                         if ($key['email_status'] == 2) {
+                                         /*if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
                                                 <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
@@ -109,7 +113,7 @@
                                                 <td>
                                                 <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
                                                 </td>";
-                                         }
+                                         }*/
 
                                          if ($key['sms_status'] == 2) {
                                          echo "<td>No</td>
