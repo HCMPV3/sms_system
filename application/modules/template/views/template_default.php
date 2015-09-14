@@ -6,7 +6,7 @@
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">SMS/Email Management System <small></small></h1>
+    <h1 class="page-header">SMS Management System <small></small></h1>
     <!-- end page-header -->
     <!-- begin row -->
     <div class="row">
