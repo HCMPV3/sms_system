@@ -28,16 +28,23 @@
                             <thead>
                                 <tr>
                                     <th>Category Name</th>
-                                    <th>Action</th>
+                                    <th colspan="3">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 
                                     <?php 
                                     foreach ($category_data as $key) {
+                                        $name = $key['category'];
                                         echo "<tr>";
                                          echo "<td>".$key['category']."</td>";
-                                         echo "<td><a class=\"btn btn-sm btn-success\" href=".base_url().'users/delete_category/'.$key['id'].">Delete Category</a></td>";
+                                         if ($key['status'] == 1) {
+                                         echo "<td><a class=\"btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></td>";
+                                         }else{
+                                         echo "<td><a class=\"btn btn-sm btn-success\" href=".base_url().'users/change_status/category/activate/'.$key['id'].">Activate</a></td>";
+                                         }
+                                         // echo "<td><a class=\"btn btn-sm btn-success update\" href=".base_url().'users/update_category/'.$key['id']." data-name = ".$key['category'].">Update</a></td>";
+                                         echo "<td><a class=\"btn btn-sm btn-success\" href=".base_url().'users/delete_category/'.$key['id'].">Delete</a></td>";
                                         echo "</tr>";
                                      } ?>
 
@@ -86,8 +93,8 @@
 
 <script>
     $(document).ready(function(){
-        $(".submit").click(function(){
-            $('#add_users_form').submit();
+        $(".update").click(function(){
+            alert($(this).attr("data-name"));
         });
     });
 </script>

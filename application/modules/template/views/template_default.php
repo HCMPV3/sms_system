@@ -43,12 +43,12 @@
         <div class="col-md-4 col-sm-6">
             <div class="widget widget-stats bg-purple">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-mobile fa-fw"></i></div>
-                <div class="stats-title">RECIEVING SMS</div>
+                <div class="stats-title">Active Users</div>
                 <div class="stats-number"><?php echo $sms_count;?></div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 76.3%;"></div>
                 </div>
-                <div class="stats-desc">There are <?php echo $sms_count;?> people recieving sms messages</div>
+                <div class="stats-desc">There are <?php echo $sms_count;?> people receiving sms messages</div>
             </div>
         </div>
         <!--
@@ -81,14 +81,14 @@
                         <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
                             <thead>
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Full Name</th>
+                                    <!-- <th>Last Name</th> -->
                                     <th>Category</th>
-                                    <th>Email</th>
+                                    <!-- <th>Email</th> -->
                                     <th>Phone</th>
                                     <!-- <th>Email</br>Recieval</th> -->
                                     <!-- <th>Action Email</th> -->
-                                    <th>SMS</br>Recieval</th>
+                                    <th>SMS</br>Receival</th>
                                     <th>Action</th>
                                     <th>Date added</th>
                                 </tr>
@@ -98,10 +98,9 @@
                                     <?php 
                                     foreach ($user_data as $key) {
                                         echo "<tr>";
-                                         echo "<td>".$key['fname']."</td>";
-                                         echo "<td>".$key['lname']."</td>";
+                                         echo "<td>".$key['fname']." ".$key['lname']."</td>";
                                          echo "<td>".$key['category']."</td>";
-                                         echo "<td>".$key['email']."</td>";
+                                         // echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
                                          /*if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
@@ -127,7 +126,7 @@
                                                 </td>";
                                          }
 
-                                         echo "<td>".$key['created_at']."</td>";
+                                         echo "<td>".date("Y-M-d",strtotime($key['created_at']))."</td>";
                                         echo "</tr>";
                                      } ?>
                             </tbody>

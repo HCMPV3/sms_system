@@ -25,5 +25,13 @@ class Sms_model extends MY_Model
 		
 		return $result->result_array();
 	}
+
+	public function get_sms_content($msg_id = NULL){
+		$query = "
+		SELECT * FROM sms_messages WHERE sms_id = $msg_id
+		";
+		$result = $this->db->query($query);
+		return $result -> result_array();
+	}	
 }
 ?>

@@ -4,7 +4,6 @@
 <html lang="en">
 <!--<![endif]-->
 
-<!-- Mirrored from seantheme.com/color-admin-v1.6/admin/html/index_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Feb 2015 19:57:23 GMT -->
 <head>
     <meta charset="utf-8" />
     <title>SMS | Dashboard</title>
@@ -25,6 +24,8 @@
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/bootstrap-calendar/css/bootstrap_calendar.css';?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/gritter/css/jquery.gritter.css';?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/morris/morris.css';?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/bootstrap-switch/bootstrap-switch.css';?>" rel="stylesheet">
+
     <script src="<?php echo base_url().'assets/template/plugins/jquery/jquery-1.9.1.min.js';?>"></script>
     <!-- ================== END BASE CSS STYLE ================== -->
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/DataTables/css/data-table.css';?>" rel="stylesheet">
@@ -56,10 +57,6 @@
                 <!-- begin header navigation right -->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label">2</span>
-                        </a>
                         <ul class="dropdown-menu media-list pull-right animated fadeInDown">
                             <li class="dropdown-header">Notifications (2)</li>
                             <li class="media">
@@ -98,11 +95,7 @@
                         </a>
                         <ul class="dropdown-menu animated fadeInLeft">
                             <li class="arrow"></li>
-                            <li><a href="javascript:;">Edit Profile</a></li>
-                            <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
-                            <!-- <li><a href="javascript:;">Calendar</a></li> -->
-                            <!-- <li><a href="javascript:;">Setting</a></li> -->
-                            <li class="divider"></li>
+                            <!-- <li class="divider"></li> -->
                             <li><a href="<?php echo base_url(); ?>">Log Out</a></li>
                         </ul>
                     </li>
@@ -154,6 +147,8 @@
     <script src="<?php echo base_url().'assets/template/plugins/gritter/js/jquery.gritter.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/js/dashboard-v2.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/js/apps.min.js';?>"></script>
+    <script src="<?php echo base_url().'assets/plugins/bootstrap-switch/bootstrap-switch.js';?>"></script>
+    <script src=""></script>
     
 
     <!-- ================== END PAGE LEVEL JS ================== -->

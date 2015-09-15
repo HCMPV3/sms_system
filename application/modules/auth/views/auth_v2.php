@@ -39,8 +39,8 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span> SMS/Email
-                    <small>Welcome to the SMS/Email Management System</small>
+                    <span class="logo"></span> SMS
+                    <small>Welcome to the SMS Management Tool</small>
                 </div>
                 <div class="icon">
                     <i class="fa fa-sign-in"></i>
@@ -48,24 +48,17 @@
             </div>
             <!-- end brand -->
             <div class="login-content">
-                <form action="<?php echo base_url().'auth/redirection'; ?>" method="POST" class="margin-bottom-0">
+                <form action="<?php echo base_url().'auth/login'; ?>" method="POST" class="margin-bottom-0">
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Email Address" />
+                        <input type="email" name="email" class="form-control input-lg" placeholder="Email Address" />
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Password" />
-                    </div>
-                    <div class="checkbox m-b-20">
-                        <label>
-                            <input type="checkbox" /> Remember Me
-                        </label>
+                        <input type="password" name="password" class="form-control input-lg" placeholder="Password" />
                     </div>
                     <div class="login-buttons">
                         <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
                     </div>
-                    <div class="m-t-20">
-                        Not a member yet? Click <a href="#">here</a> to register.
-                    </div>
+                    <?php if(isset($message)):echo $message;endif; ?>
                 </form>
             </div>
         </div>

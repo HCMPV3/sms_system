@@ -29,7 +29,7 @@ class MY_Controller extends MX_Controller
 	}
 
 	function get_user($id){
-		$user_details = $this->template->User_details($id);
+		// $user_details = $this->template->User_details($id);
 
 		return $user_details;
 	}

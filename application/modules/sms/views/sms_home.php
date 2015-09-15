@@ -13,7 +13,7 @@
             </thead>
                 <tbody>
                 <tr>
-                    <td>Category: </td>
+                    <td><b>Category</b></td>
                     <td>
                         <select class="form-control" id="category" required = "required">
                                 <option>Select a Category</option>
@@ -25,23 +25,32 @@
                         </select>
                     </td>
                 </tr>
-                <tr id="individual_selection_row">
-                    <td>Select Individual</td>
+
+                <tr class="c-selection">
+                    <td><b>County</b></td>
                     <td>
-                        <select class="form-control" id="category" required = "required">
-                                <option>Select a Category</option>
-                                <option value="individual"><b>Individual Person</b></option>
-                                <option value="all"><b>All categories</b></option>
-                            <?php foreach ($categories as $key) {?>
-                            <option value="<?php echo $key['id']; ?>"><?php echo $key['category']; ?></option>
-                            <?php } ?>
+                        <select class="form-control" id="county" name="county">
+                                <!-- <option value="0">Select a County</option> -->
+                                <option value="all">All Counties</option>
+                                <?php foreach ($county_data as $key) {?>
+                                <option value="<?php echo $key['id']; ?>"><?php echo $key['county']; ?></option>
+                                <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr class="sc-selection">
+                    <td><b>Sub County</b></td>
+                    <td>
+                        <select class="form-control" id="district" name="district">
+                                <option>Select a Subcounty</option>
                         </select>
                     </td>
                 </tr>
                     <tr>
-                        <td class="">Message</td>
+                        <td class=""><b>Message</b></td>
                         <td class="">
-                        <textarea  rows="4" cols="50" class="form-control col-md-8" name="sms_message" id="sms_message" placeholder="Enter SMS Message here"></textarea>
+                        <textarea  rows="4" cols="50" style="width: 357px;height: 241px;" class="form-control col-md-8" name="sms_message" id="sms_message" placeholder="Enter SMS Message here"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -59,9 +68,10 @@
             <table class="table table-bordered previous_messages" id="data-table">
                 <thead>
                     <tr>
-                    <th class="col-md-8">Content</th>
+                    <th class="col-md-4">Content</th>
                     <th class="col-md-4">Date Sent</th>
                     <th class="col-md-4">Category Sent To</th>
+                    <th class="col-md-4">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +87,10 @@
                             echo $key['category'];
                         }
                         echo "</td>";
+                        echo "<td>";
+                        echo '<a href="" class="resend_msg" data-sms-id="'.$key['sms_id'].'">Resend Message</a>';
+                        echo "</td>";
+
                         echo "</tr>";
                     }
                  ?>
@@ -90,17 +104,24 @@
 $(document).ready(function(){
     // $("#data-table").dataTable();
     $('#data-table').DataTable();
-    $('#individual_selection_row').hide();
-    $('#category').change(function(){
-        // alert($('#category').val());
-        if ($('#category').val() == 'individual') {
-            // alert('who?');
-            $('#individual_selection_row').show();
-        }else{
-            $('#individual_selection_row').hide();
-        };
-    });
+    $('.c-selection').hide();
+    $('.sc-selection').hide();
+    var county,district;
+
+    $('#county').change(function(){
+            // alert($(this).find(':selected').attr("data-type"));
+            county = $(this).find(':selected').val();
+            // alert(county);return;
+        });
+    $('#district').change(function(){
+            // alert($(this).find(':selected').attr("data-type"));
+            district = $(this).find(':selected').val();
+        });
+
     $(".send_sms").click(function(){
+        var county = $("#county").val();
+        var district = $("#district").val()
+
     var sms_body = $("#sms_message").val();
     var category = $("#category").val();
     // alert(category);return;
@@ -113,10 +134,36 @@ $(document).ready(function(){
     // alert(sms_body);return;
         $.ajax({
         type: "POST",
-        url:'sms/send_sms',
+        url:"<?php echo base_Url().'sms/send_sms/NULL/NULL/category'; ?>",
         data:{
             sms_body:sms_body,
-            category:category
+            category:category,
+            county:county,
+            district:district
+        },
+        beforeSend : function(){
+            $(".send_sms").html('<i class="fa fa-cog fa-spin"></i> Sending SMS ');
+        },
+        success: function(msg){
+            alert(msg);
+            console.log(msg);
+            $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
+            $("#sms_message").val('');
+            // location.reload();
+        }
+    });//end of ajax
+    }//end of else
+    });//end of send sms .click
+
+    $(".resend_msg").click(function(e){
+        e.preventDefault();
+        // alert($(this).attr("data-sms-id"));return;
+        var msg_id = $(this).attr("data-sms-id");
+        $.ajax({
+        type: "POST",
+        url:"<?php echo base_url().'sms/resend_sms';?>",
+        data:{
+            id:msg_id
         },
         beforeSend : function(){
             $(".send_sms").html('<i class="fa fa-cog fa-spin"></i> Sending SMS ');
@@ -125,10 +172,61 @@ $(document).ready(function(){
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');
-            location.reload();
+            // location.reload();
         }
-    });//end of ajax
-    }//end of else
-    });//end of send sms .click
+        });//end of ajax
+
+    });
+
+        $('#category').change(function(){
+            // alert($(this).find(':selected').attr("data-type"));
+            var category = $(this).find(':selected').val();
+            // alert(category);return;
+            if (category == 1) {//same as above
+                // alert("Recipient");
+                $('.c-selection').show();
+            }else{
+                $('.c-selection').hide();
+                $('.sc-selection').hide();
+                $("#county").val('0');
+                $("#district").find('option').remove().end().append('<option',{
+                        text:"Select Sub COunty"
+                    });
+            };
+        });//category change fn
+
+        $('#county').change(function(){
+            // alert($(this).find(':selected').attr("data-type"));
+            var county = $(this).find(':selected').val();
+            // alert(county);return;
+
+            $.ajax({
+                type:"POST",
+                url:"<?php echo base_url().'users/get_districts';?>",
+                data:{
+                    county:county
+                },
+                success: function(districts){
+                    // alert(districts);return;
+                    $("#district").find('option').remove().end().append('<option',{
+                        text:"Select District"
+                    });
+                    var district_data =jQuery.parseJSON(districts);
+                    $("#district").append($('<option>',{
+                            value:"all",
+                            text:"All Sub Counties In This County"
+                        }));
+                    $.each(district_data,function(key,value){
+                        $("#district").append($('<option>',{
+                            value:value.id,
+                            text:value.district
+                        }));
+                        // console.log(value.id);
+                    });//populate the option thing
+                    // console.log(district_data);
+                    $('.sc-selection').show();
+                }
+            });
+        });//county change fn
 });
 </script>

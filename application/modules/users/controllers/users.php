@@ -24,10 +24,18 @@ class Users extends MY_Controller{
 		$data['user_data'] = $this->m_users->get_recepients();
 		$data['category_data'] = $this->m_users->get_categories();
 		$data['district_data'] = $this->m_users->get_districts();
+		$data['county_data'] = $this->m_users->get_counties();
 		$data['usertypes'] = $this->m_users->get_usertypes();
 		$data['active'] = 'recipients';
-		// echo "<pre>";print_r($data['usertypes']);echo "</pre>";exit;
+		// echo "<pre>";print_r($data['county_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
+	}
+
+	public function delete_recipient($recipient){
+		$query = "DELETE FROM recepients WHERE recepient_id = $recipient";
+
+		$results = $this->db->query($query);
+		redirect(base_url().'users/recipients');
 	}
 
 	public function members(){
@@ -76,7 +84,7 @@ class Users extends MY_Controller{
 		$email = $this->input->post('email');
 		$phone_no = $this->input->post('phone_no');
 		$sms_recieve = $this->input->post('sms_recieve');
-		$email_recieve = $this->input->post('email_recieve');
+		// $email_recieve = $this->input->post('email_recieve');
 		$category = $this->input->post('category');
 		$district = $this->input->post('district');
 		$usertypes = $this->input->post('usertypes');
@@ -97,9 +105,9 @@ class Users extends MY_Controller{
 		$member_info = array(
 			'fname' => $fname,
 			'lname' => $lname,
-			// 'email' => $email,
+			'email' => $email,
 			'phone_no' => $phone_no,
-			'sms_status' => $sms_recieve,
+			// 'sms_status' => $sms_recieve,
 			// 'email_status' => $email_recieve,
 			'category_id' => $category,
 			'district_id' => $district,
@@ -116,11 +124,11 @@ class Users extends MY_Controller{
 	public function add_admin(){
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-
+		// $hashed = $this->encrypt(123456);
 		$user_info = array();
 		$user_info_ = array(
 			'email'=> $email,
-			'password'=>md5($password),
+			'password'=>$this->encrypt(123456),
 			'status'=>1
 			);
 
@@ -133,7 +141,8 @@ class Users extends MY_Controller{
 	}
 
 	public function reset_password($id){
-		$pwd = md5(123456);
+		// $pwd = md5(123456);
+		$pwd = $this->encrypt(123456);
 		$query = "UPDATE `users` SET `password`= '$pwd' WHERE `user_id`= $id";
 		$this->db->query($query);
 
@@ -197,12 +206,38 @@ class Users extends MY_Controller{
 				}//nested switch,for type
 				$redirect_url = 'users/members';
 				break;
+
+			case 'category':
+				switch ($type) {
+					case 'activate':
+						$query = "UPDATE categories SET `status`='1' WHERE `id`= $member";
+						$this->db->query($query);
+						break;
+					case 'deactivate':
+						$query = "UPDATE categories SET `status`='0' WHERE `id`= $member";
+						$this->db->query($query);
+						break;
+					
+					default:
+						# code...
+						break;
+				}
+				$redirect_url = 'users/categories';
+				break;
 			default:
 				# code...
 				break;
 		}//status switch
 
 		redirect(base_url().$redirect_url);
+	}
+
+	public function get_districts($county_id = NULL){
+		$county_id = $this->input->post('county');
+		$counties = $this->m_users->get_county_districts($county_id);
+
+		// echo $counties;
+		echo json_encode($counties);
 	}
 }
 ?>

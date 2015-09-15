@@ -23,13 +23,17 @@ class M_users extends MY_Model
 			    r.user_type,
 			    c.id,
 			    c.category,
-                d.district
+                d.district,
+                ct.county
 			FROM
 			    recepients r
-			        JOIN
+			        LEFT JOIN
 			    categories c ON c.id = r.category_id
-					JOIN
+					LEFT JOIN
 				districts d ON d.id = r.district_id
+					LEFT JOIN
+				counties ct ON d.county = ct.id
+				WHERE c.status = 1
 				ORDER BY 
 				r.fname
 		";
@@ -61,21 +65,41 @@ class M_users extends MY_Model
 		return $result -> result_array();
 	}
 
+	public function get_counties($county_id = NULL){
+		$and = isset($county_id)? " WHERE id = $county_id":NULL;
+		$query = "
+		SELECT * from counties $and
+		";
+		$result = $this->db->query($query);
+		return $result -> result_array();
+	}
+
+	public function get_county_districts($county_id = NULL){
+		$and = isset($county_id)? " WHERE county = $county_id":NULL;
+		$query = "
+		SELECT * from districts $and
+		";
+		$result = $this->db->query($query);
+		return $result -> result_array();
+	}
+
 	public function get_usertypes(){
 		$query = "
-		SELECT * from user_type
+		SELECT * from user_type WHERE level = 2
 		";
 		$result = $this->db->query($query);
 		return $result -> result_array();
 	}
 
 
-	public function get_numbers($category = NULL){
+	public function get_numbers($category = NULL,$county = NULL,$district = NULL){
 		// $category_criteria = isset($category)? "AND category_id = $category" : NULL;
-		$category_criteria = (isset($category) && $category == "all")? NULL :  "AND category_id = $category";
-
+		$criteria = (isset($category) && $category == "all")? NULL :  "AND category_id = $category";
+		$criteria .= (isset($county) && $county != "all" && $county!='')? " AND county_id = $county" : NULL ;
+		$criteria .= (isset($district) && $district != "all" && $district!='')? " AND district_id = $district" : NULL ;
+		// echo "SELECT phone_no FROM recepients WHERE sms_status = 1 $criteria";exit;
 		$query = "
-		SELECT phone_no FROM recepients WHERE sms_status = 1 $category_criteria
+		SELECT phone_no FROM recepients WHERE sms_status = 1 $criteria
 		";
 		$result = $this->db->query($query);
 		return $result -> result_array();
@@ -89,9 +113,6 @@ class M_users extends MY_Model
 		$result = $this->db->query($query);
 		return $result -> result_array();
 	}
-
-	
-
 
 }
 ?>
