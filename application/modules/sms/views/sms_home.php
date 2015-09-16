@@ -3,7 +3,9 @@
         background: #FFFFFF;
     }
 </style>
+
 <div class="content">
+<h1 class="page-header">Send SMS - Category <small></small></h1>
     <div class="panel-body">
         <div class="table-responsive col-md-6">
             <table class="table">
@@ -64,21 +66,25 @@
             </table>
         </div>
         <div class="col-md-6">
-                    <h4>Previous Messages</h4>
+            <div class="col-md-12">
+                    <h4 style="float:left;">Previous Messages</h4>
+            <a style="float:right; padding: 10px;" href="<?php echo base_url().'sms/clear_message/NULL/all'; ?>">Clear All Previous Messages</a>
+            </div>
             <table class="table table-bordered previous_messages" id="data-table">
                 <thead>
                     <tr>
-                    <th class="col-md-4">Content</th>
-                    <th class="col-md-4">Date Sent</th>
-                    <th class="col-md-4">Category Sent To</th>
-                    <th class="col-md-4">Action</th>
+                    <th>Content</th>
+                    <th>Date Sent</th>
+                    <th>Category Sent To</th>
+                    <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php 
                     foreach ($past_messages as $key) {
+                        $sms_content = (strlen($key['sms_content'])>15)? substr($key['sms_content'], 0,10)."...":$key['sms_content'];
                         echo "<tr>";
-                        echo "<td>".$key['sms_content']."</td>";
+                        echo "<td>".$sms_content."</td>";
                         echo "<td>".date("Y-M-d",strtotime($key['date_sent']))."</td>";
                         echo "<td>";
                         if ($key['category'] =='') {
@@ -88,7 +94,8 @@
                         }
                         echo "</td>";
                         echo "<td>";
-                        echo '<a href="" class="resend_msg" data-sms-id="'.$key['sms_id'].'">Resend Message</a>';
+                        echo '<a href="" class="resend_msg" data-sms-id="'.$key['sms_id'].'">Resend</a> | ';
+                        echo '<a href="'.base_url().'sms/clear_message/'.$key['sms_id'].'" class="clear_message" data-sms-id="'.$key['sms_id'].'">Clear</a>';
                         echo "</td>";
 
                         echo "</tr>";
@@ -125,9 +132,9 @@ $(document).ready(function(){
     var sms_body = $("#sms_message").val();
     var category = $("#category").val();
     // alert(category);return;
-    if ($("#sms_message").val() == '' ) {
+    if ($("#sms_message").val() == '' || $("#category").val() == '') {
         $(".send_sms").html('<i class="fa fa-exclamation"></i> Send SMS ');
-        $(".empty_warning").html('<i class="fa fa-exclamation"></i> Kindly enter a message to send ');
+        $(".empty_warning").html('<i class="fa fa-exclamation"></i> Kindly enter a message and select a category to send ');
 
         // alert("Kindly enter a message to send")
     }else{
@@ -145,7 +152,7 @@ $(document).ready(function(){
             $(".send_sms").html('<i class="fa fa-cog fa-spin"></i> Sending SMS ');
         },
         success: function(msg){
-            alert(msg);
+            // alert(msg);
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');

@@ -63,13 +63,13 @@
             <li class="has-sub <?php if(isset($active) && $active=='users'){echo "active";}; ?>">
                 <a href="<?php echo base_url().'users/members'; ?>">
                     <i class="fa fa-user-plus"></i> 
-                    <span>User Management</span>
+                    <span>Administrators</span>
                 </a>
             </li>
 
             <li class="has-sub <?php if(isset($active) && $active=='categories'){echo "active";}; ?>">
                 <a href="<?php echo base_url().'users/categories'; ?>">
-                    <i class="fa fa-user-plus"></i> 
+                    <i class="fa fa-cubes"></i> 
                     <span>Category Management</span>
                 </a>
             </li>

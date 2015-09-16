@@ -5,6 +5,7 @@
     }
 </style>
 <div class="content">
+<h1 class="page-header">Send SMS - Individual <small></small></h1>
     <div class="panel-body">
         <div class="table-responsive col-md-12">
             <table class="table">

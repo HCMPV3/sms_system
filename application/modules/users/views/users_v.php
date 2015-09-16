@@ -13,10 +13,11 @@
     }
 </style>
 <div id="content" class="content">
+<h1 class="page-header">Administrator Management<small></small></h1>
     <div class="row">
         <div class="col-md-12">
             <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
-            <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add User</a>
+            <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Administrator</a>
             <div class="panel-new panel-inverse">
                 <div class="panel-heading">
                     <h4 class="panel-title">System Administrators</h4>

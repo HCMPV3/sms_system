@@ -11,12 +11,16 @@
     .panel-new{
         background: #ffffff;
     }
+    .fxwdth{
+        width:95px;
+    }
 </style>
 <div id="content" class="content">
+<h1 class="page-header" style="float:left">Recipient Management<small></small></h1>
+            <a href="#modal-dialog" style="float:right;margin:0;" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recipient</a>
     <div class="row">
         <div class="col-md-12">
             <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
-            <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recipient</a>
             <div class="panel-new panel-inverse">
                 <div class="panel-heading">
                     <h4 class="panel-title">Recipients</h4>
@@ -39,7 +43,7 @@
                                     <th>SMS Receival</th>
                                     <th>Action</th>
                                     <th>Date added</th>
-                                    <th>Delete</th>
+                                    <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,21 +73,23 @@
                                          }*/
 
                                          if ($key['sms_status'] == 2) {
-                                         echo "<td>No</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate Recipient</a>
-                                                </td>";
+                                            $stmt = "No";
+                                            $status = "<a class=\"btn btn-success fxwdth\" href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate</a>";
+                                                
                                          }elseif($key['sms_status'] == 1){
-                                         echo "<td>Yes</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate Recipient</a>
-                                                </td>";
+                                            $stmt = "Yes";
+                                            $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
                                          }
-
+                                         echo "<td>".$stmt."</td>
+                                                <td>
+                                                ".$status."
+                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
+                                                </td>
+                                                ";
                                          echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
-                                         echo "<td>
-                                                <a href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
-                                                </td>";
+                                         /*echo "<td>
+                                                
+                                                </td>";*/
                                         echo "</tr>";
                                      } ?>
                             </tbody>
@@ -148,7 +154,7 @@
                                     </table>
                                      -->
 
-                                    <tr>
+                                    <!-- <tr>
                                         <td><label><b>User Type</b></label></td>
                                         <td>
                                             <select class="form-control usertypes" id="usertypes" required = "required" name="usertypes">
@@ -158,7 +164,7 @@
                                                     <?php } ?>
                                             </select>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr class="category-selection">
                                         <td class="col-md-6"><label><b>Category Selection</b></label></td>
                                         <td class="col-md-6">
@@ -211,8 +217,8 @@
 <script>
     $(document).ready(function(){
         $('#data-table').DataTable();
-        $('.category-selection').hide();
-        $('.c-selection').hide();
+        // $('.category-selection').hide();
+        // $('.c-selection').hide();
         $('.sc-selection').hide();
 
         $('#usertypes').change(function(){
@@ -236,7 +242,12 @@
                 // alert("Recipient");
                 $('.c-selection').show();
             }else{
+                $('.sc-selection').hide();
                 $('.c-selection').hide();
+                $("#county").val('0');
+                $("#district").find('option').remove().end().append('<option',{
+                        text:"Select Sub COunty"
+                    });
             };
         });//category change fn
 

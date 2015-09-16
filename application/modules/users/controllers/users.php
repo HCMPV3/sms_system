@@ -75,6 +75,15 @@ class Users extends MY_Controller{
 		redirect('users/categories');
 	}
 
+	public function rename_category(){
+		$category_id = $this->input->post("category_id_renaming");
+		$category_name = $this->input->post("new_category_name");
+		// echo "UPDATE categories SET category = $category_name WHERE id = $category_id";exit;
+		$query = $this->db->query("UPDATE categories SET category = '$category_name' WHERE id = $category_id");
+
+		redirect('users/categories');
+	}
+
 	public function add_user(){
 		$results = $this ->input->post();
 		// echo "<pre>";print_r($results);echo "</pre>";exit;
@@ -87,7 +96,8 @@ class Users extends MY_Controller{
 		// $email_recieve = $this->input->post('email_recieve');
 		$category = $this->input->post('category');
 		$district = $this->input->post('district');
-		$usertypes = $this->input->post('usertypes');
+		$county = $this->input->post('county');
+		$usertypes = 1;//the default for usertype
 
 		$userinfo = array();
 			$user_info = array(
@@ -111,6 +121,7 @@ class Users extends MY_Controller{
 			// 'email_status' => $email_recieve,
 			'category_id' => $category,
 			'district_id' => $district,
+			'county_id' => $county,
 			'user_type' => $usertypes
 			 );
 		array_push($minfo, $member_info);
@@ -167,7 +178,7 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
-				$redirect_url = 'users/recepients';
+				$redirect_url = 'users/recipients';
 				break;
 			case 'deactivate':
 				switch ($type) {
@@ -185,7 +196,7 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
-				$redirect_url = 'users/recepients';
+				$redirect_url = 'users/recipients';
 
 				break;
 			case 'users':

@@ -11,6 +11,7 @@ class Sms_model extends MY_Model
 	}
 
 	public function get_messages($user_id = NULL){
+		$user_id_filter = isset($user_id)? "AND sender_id = $user_id":NULL;
 		$query = "SELECT 
 					    s.sms_id,
 					    s.sms_content,
@@ -19,7 +20,8 @@ class Sms_model extends MY_Model
 					FROM
 					    sms_messages s
 					    LEFT JOIN 
-					    categories c ON c.id = s.category_id";
+					    categories c ON c.id = s.category_id
+					    WHERE s.status = 0 $user_id_filter";
 
 		$result = $this->db->query($query);
 		

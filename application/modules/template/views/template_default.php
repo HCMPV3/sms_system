@@ -26,29 +26,30 @@
          -->
         <!-- end col-3 -->
         <!-- begin col-3 -->
-        <!-- 
-        <div class="col-md-4 col-sm-6">
-            <div class="widget widget-stats bg-blue">
-                <div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
-                <div class="stats-title">RECIEVING EMAILS</div>
-                <div class="stats-number"><?php echo $emails_count; ?></div>
-                <div class="stats-progress progress">
-                    <div class="progress-bar" style="width: 40.5%;"></div>
-                </div>
-                <div class="stats-desc">There are <?php echo $emails_count; ?> people recieving email messages</div>
-            </div>
-        </div>
- -->
+
+
         <!-- end col-3 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="widget widget-stats bg-purple">
+        <div class="col-md-6 col-sm-6">
+            <div class="widget widget-stats bg-green">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-mobile fa-fw"></i></div>
-                <div class="stats-title">Active Users</div>
+                <div class="stats-title">Recipients</div>
                 <div class="stats-number"><?php echo $sms_count;?></div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 76.3%;"></div>
                 </div>
-                <div class="stats-desc">There are <?php echo $sms_count;?> people receiving sms messages</div>
+                <div class="stats-desc">There are <?php echo $sms_count;?> people listed as recipients</div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+            <div class="widget widget-stats bg-blue">
+                <div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
+                <div class="stats-title">Administrators</div>
+                <div class="stats-number"><?php echo $all_users; ?></div>
+                <div class="stats-progress progress">
+                    <div class="progress-bar" style="width: 40.5%;"></div>
+                </div>
+                <div class="stats-desc">There are <?php echo $all_users; ?> people sending SMS messages</div>
             </div>
         </div>
         <!--
@@ -117,12 +118,12 @@
                                          if ($key['sms_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate SMS Recieval</a>
+                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate Recipient</a>
                                                 </td>";
                                          }elseif($key['sms_status'] == 1){
                                          echo "<td>Yes</td>
                                                 <td>
-                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate SMS Recieval</a>
+                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate Recipient</a>
                                                 </td>";
                                          }
 

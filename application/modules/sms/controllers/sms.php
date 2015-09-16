@@ -10,6 +10,8 @@ class Sms extends MY_Controller{
 	public function index($to = NULL){
 		// $get_messages = $this -> sms_model -> get_messages(1);
 		// echo "<pre>";print_r($get_messages);echo "</pre>";exit;
+		$user_id = $this->session->userdata('userid');
+		// echo "<pre>";print_r($this->session->userdata('userid'));exit;
 		$data['county_data'] = $this->m_users->get_counties();
 		$data['active'] = 'sms';
 		if (isset($to) && $to == 'individual') {
@@ -17,7 +19,7 @@ class Sms extends MY_Controller{
 			$data['recipients'] = $this -> m_users ->get_recepients();
 		}else{
 			$data['content'] = 'sms/sms_home';
-			$data['past_messages'] = $this -> sms_model ->get_messages();
+			$data['past_messages'] = $this -> sms_model ->get_messages($user_id);
 			$data['categories'] = $this -> m_users ->get_categories();
 		}
 		
@@ -30,6 +32,7 @@ class Sms extends MY_Controller{
 		// $user_id = 1;
 		$county = $this->input->post("county");
 		$district = $this->input->post("district");
+		$user_id = $this->session->userdata('userid');
 		// echo $district;exit;
 		/*if ($county=='0') {
 			echo "No county selected";
@@ -49,7 +52,8 @@ class Sms extends MY_Controller{
 			'sms_content' => $message_,
 			'category_id' =>$category,
 			'county_id' => $county,
-			'district_id' => $district
+			'district_id' => $district,
+			'sender_id' => $user_id
 			);
 		array_push($sms_data,$sms_data_);
 		$this->db->insert_batch('sms_messages',$sms_data);
@@ -73,7 +77,8 @@ class Sms extends MY_Controller{
 		$sms_data = array();
 		$sms_data_ = array(
 			'sms_content' => $message_,
-			'person_id' =>$recipients
+			'person_id' =>$recipients,
+			'sender_id' => $user_id
 			);
 		array_push($sms_data,$sms_data_);
 		$this->db->insert_batch('sms_messages',$sms_data);
@@ -96,6 +101,7 @@ class Sms extends MY_Controller{
 		// echo "<pre>";print_r($this->input->post());echo "</pre>";exit;
 		// $user_id = 1;
 		// echo $to;exit;
+		$user_id = $this->session->userdata('userid');
 		$msg_id = $this->input->post('id');
 		// echo $id;exit;
 		$message_content = $this->sms_model->get_sms_content($msg_id);
@@ -113,7 +119,8 @@ class Sms extends MY_Controller{
 			'sms_content' => $message_,
 			'category_id' =>$category,
 			'county_id' => $county,
-			'district_id' => $district
+			'district_id' => $district,
+			'sender_id' => $user_id
 			);
 		array_push($sms_data,$sms_data_);
 		$this->db->insert_batch('sms_messages',$sms_data);
@@ -152,6 +159,18 @@ class Sms extends MY_Controller{
 			$x = $x+1;
 		}
 		echo "<pre>";print_r($data);exit;
+	}
+
+	public function clear_message($msg_id,$all = NULL){
+		$user_id = $this->session->userdata('userid');
+		if (isset($all) && $all == 'all') {
+			$query = "UPDATE sms_messages SET status = 1 WHERE sender_id = $user_id";
+			$result = $this->db->query($query);
+		}else{
+		$query = "UPDATE sms_messages SET status = 1 WHERE sms_id = $msg_id";
+		$result = $this->db->query($query);
+		}
+		redirect(base_url().'sms/index/category');
 	}
 
 	public function tester(){
