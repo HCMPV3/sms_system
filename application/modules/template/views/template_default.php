@@ -29,6 +29,7 @@
 
 
         <!-- end col-3 -->
+        <!-- random addition to allow for commit -->
         <div class="col-md-6 col-sm-6">
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-mobile fa-fw"></i></div>
