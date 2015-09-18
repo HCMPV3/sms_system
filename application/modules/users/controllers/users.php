@@ -117,7 +117,7 @@ class Users extends MY_Controller{
 			'lname' => $lname,
 			'email' => $email,
 			'phone_no' => $phone_no,
-			// 'sms_status' => $sms_recieve,
+			'sms_status' => 1,
 			// 'email_status' => $email_recieve,
 			'category_id' => $category,
 			'district_id' => $district,
