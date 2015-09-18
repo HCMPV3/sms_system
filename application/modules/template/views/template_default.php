@@ -83,16 +83,19 @@
                         <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Full Name</th>
+                                    <th>Full Names</th>
                                     <!-- <th>Last Name</th> -->
+                                    <th>County</th>
+                                    <th>Sub County</th>
                                     <th>Category</th>
                                     <!-- <th>Email</th> -->
                                     <th>Phone</th>
-                                    <!-- <th>Email</br>Recieval</th> -->
+                                    <!-- <th>Email Recieval</th> -->
                                     <!-- <th>Action Email</th> -->
-                                    <th>SMS</br>Receival</th>
+                                    <th>SMS Receival</th>
                                     <th>Action</th>
                                     <th>Date added</th>
+                                    <!-- <th>Delete</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,11 +103,16 @@
                                     <?php 
                                     foreach ($user_data as $key) {
                                         echo "<tr>";
-                                         echo "<td>".$key['fname']." ".$key['lname']."</td>";
+                                         echo "<td>".$key['fname']."</td>";
+                                         $county = isset($key['county'])? $key['county'] : ' - ';
+                                         echo "<td>".$county."</td>";
+                                         $district = isset($key['district'])? $key['district'] : ' - ';
+                                         echo "<td>".$district."</td>";
+                                         // echo "<td>".$key['lname']."</td>";
                                          echo "<td>".$key['category']."</td>";
                                          // echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
-                                         /*if ($key['email_status'] == 2) {
+                                      /*   if ($key['email_status'] == 2) {
                                          echo "<td>No</td>
                                                 <td>
                                                 <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
@@ -117,18 +125,23 @@
                                          }*/
 
                                          if ($key['sms_status'] == 2) {
-                                         echo "<td>No</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate Recipient</a>
-                                                </td>";
+                                            $stmt = "No";
+                                            $status = "<a class=\"btn btn-success fxwdth\" href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate</a>";
+                                                
                                          }elseif($key['sms_status'] == 1){
-                                         echo "<td>Yes</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate Recipient</a>
-                                                </td>";
+                                            $stmt = "Yes";
+                                            $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
                                          }
-
-                                         echo "<td>".date("Y-M-d",strtotime($key['created_at']))."</td>";
+                                         echo "<td>".$stmt."</td>
+                                                <td>
+                                                ".$status."
+                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
+                                                </td>
+                                                ";
+                                         echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
+                                         /*echo "<td>
+                                                
+                                                </td>";*/
                                         echo "</tr>";
                                      } ?>
                             </tbody>
