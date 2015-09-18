@@ -84,7 +84,7 @@ class Sms extends MY_Controller{
 		$this->db->insert_batch('sms_messages',$sms_data);
 
 		$phone_numbers = $this->m_users->get_number($recipients);
-		// echo "<pre>";print_r($phone_numbers);exit;
+		echo "<pre>";print_r($phone_numbers);exit;
 		foreach ($phone_numbers as $key => $user_no)
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
