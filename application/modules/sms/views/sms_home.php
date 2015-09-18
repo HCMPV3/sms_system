@@ -52,7 +52,7 @@
                     <tr>
                         <td class=""><b>Message</b></td>
                         <td class="">
-                        <textarea  rows="4" cols="50" style="width: 357px;height: 241px;" class="form-control col-md-8" name="sms_message" id="sms_message" placeholder="Enter SMS Message here"></textarea>
+                        <textarea  rows="4" cols="50" style="" class="form-control col-md-8" name="sms_message" id="sms_message" placeholder="Enter SMS Message here"></textarea>
                         </td>
                     </tr>
                     <tr>
