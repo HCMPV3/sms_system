@@ -91,7 +91,7 @@ class Sms extends MY_Controller{
 			$user_num = $user_no['phone_no'];
 			file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
 		}
-		echo "I worked";
+		echo "SMS has been sent";
 		}
 		// $this -> index();
 		// redirect(base_url().'sms');
