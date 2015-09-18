@@ -72,11 +72,11 @@
                                                 </td>";
                                          }*/
 
-                                         if ($key['sms_status'] == 2) {
+                                         if ($key['sms_status'] == '2') {
                                             $stmt = "No";
                                             $status = "<a class=\"btn btn-success fxwdth\" href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate</a>";
                                                 
-                                         }elseif($key['sms_status'] == 1){
+                                         }elseif($key['sms_status'] == '1'){
                                             $stmt = "Yes";
                                             $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
                                          }
