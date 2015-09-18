@@ -169,7 +169,7 @@
                                         <td class="col-md-6"><label><b>Category Selection</b></label></td>
                                         <td class="col-md-6">
                                             <select class="form-control" id="category" required = "required" name="category">
-                                                    <option>Select a Category</option>
+                                                    <option value="0">Select a Category</option>
                                                     <?php foreach ($category_data as $key) {?>
                                                     <option value="<?php echo $key['id']; ?>" data-cat="<?php echo $key['category']; ?>"><?php echo $key['category']; ?></option>
                                                     <?php } ?>
@@ -181,7 +181,7 @@
                                         <td><label><b>County</b></label></td>
                                         <td>
                                             <select class="form-control" id="county" name="county">
-                                                    <option>Select a County</option>
+                                                    <option value="0">Select a County</option>
                                                     <?php foreach ($county_data as $key) {?>
                                                     <option value="<?php echo $key['id']; ?>"><?php echo $key['county']; ?></option>
                                                     <?php } ?>
@@ -193,7 +193,7 @@
                                         <td><label><b>Sub County</b></label></td>
                                         <td>
                                             <select class="form-control" id="district" name="district">
-                                                    <option>Select a Subcounty</option>
+                                                    <option value="0">Select a Subcounty</option>
                                             </select>
                                         </td>
                                     </tr>
