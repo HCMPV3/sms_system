@@ -89,8 +89,8 @@ class Sms extends MY_Controller{
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
 			$user_num = $user_no['phone_no'];
-			// file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
-			echo "http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message";
+			file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
+			// echo "http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message";
 		}
 		echo "SMS has been sent";
 		}
