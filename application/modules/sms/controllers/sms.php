@@ -92,7 +92,7 @@ class Sms extends MY_Controller{
 			// file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
 			echo "http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message";
 		}
-		echo "SMS has been seeeent";
+		// echo "SMS has been seeeent";
 		}
 		// $this -> index();
 		// redirect(base_url().'sms');
