@@ -111,8 +111,8 @@ class M_users extends MY_Model
 		$query = "
 		SELECT phone_no FROM recepients WHERE sms_status = 1 AND recepient_id = $id
 		";
-		// $result = $this->db->query($query);
-		// return $result -> result_array();
+		$result = $this->db->query($query);
+		return $result -> result_array();
 	}
 
 }
