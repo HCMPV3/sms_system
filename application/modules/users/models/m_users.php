@@ -107,7 +107,7 @@ class M_users extends MY_Model
 
 	public function get_number($id = NULL){
 		// $category_criteria = isset($category)? "AND category_id = $category" : NULL;
-		echo "SELECT phone_no FROM recepients WHERE sms_status = 1 AND recepient_id = $id";exit;
+		// echo "SELECT phone_no FROM recepients WHERE sms_status = 1 AND recepient_id = $id";exit;
 		$query = "
 		SELECT phone_no FROM recepients WHERE sms_status = 1 AND recepient_id = $id
 		";

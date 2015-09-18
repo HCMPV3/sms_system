@@ -84,7 +84,7 @@ class Sms extends MY_Controller{
 		$this->db->insert_batch('sms_messages',$sms_data);
 
 		$phone_numbers = $this->m_users->get_number($recipients);
-		echo "<pre>";print_r($phone_numbers);exit;
+		// echo "<pre>";print_r($phone_numbers);exit;
 		foreach ($phone_numbers as $key => $user_no)
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
@@ -92,7 +92,7 @@ class Sms extends MY_Controller{
 			// file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
 			echo "http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message";
 		}
-		// echo "SMS has been seeeent";
+		echo "SMS has been sent";
 		}
 		// $this -> index();
 		// redirect(base_url().'sms');
