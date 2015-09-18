@@ -82,6 +82,7 @@ $(document).ready(function(){
     // $("#data-table").dataTable();
     $('#data-table').DataTable();
     $('#individual_selection_row').hide();
+    $('select').select2();
     $('#category').change(function(){
         // alert($('#category').val());
         if ($('#category').val() == 'individual') {

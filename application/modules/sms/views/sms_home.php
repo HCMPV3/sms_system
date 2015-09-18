@@ -113,6 +113,7 @@ $(document).ready(function(){
     $('#data-table').DataTable();
     $('.c-selection').hide();
     $('.sc-selection').hide();
+    $('select').select2();
     var county,district;
 
     $('#county').change(function(){

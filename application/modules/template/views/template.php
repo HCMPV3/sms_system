@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/gritter/css/jquery.gritter.css';?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/morris/morris.css';?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/bootstrap-switch/bootstrap-switch.css';?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/plugins/select2/select2.css';?>" rel="stylesheet">
 
     <script src="<?php echo base_url().'assets/template/plugins/jquery/jquery-1.9.1.min.js';?>"></script>
     <!-- ================== END BASE CSS STYLE ================== -->
@@ -167,6 +168,7 @@
     <script src="<?php echo base_url().'assets/template/js/dashboard-v2.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/js/apps.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/plugins/bootstrap-switch/bootstrap-switch.js';?>"></script>
+    <script src="<?php echo base_url().'assets/plugins/select2/select2.min.js';?>"></script>
     <script src=""></script>
     
 
