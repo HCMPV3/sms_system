@@ -371,7 +371,7 @@ class Users extends MY_Controller{
 		}
 		
 					// };
-		echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
+		// echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
 		redirect( base_url().'users/recipients');
 
 	}//end of recepient upload
