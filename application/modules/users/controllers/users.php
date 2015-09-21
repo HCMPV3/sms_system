@@ -20,7 +20,9 @@ class Users extends MY_Controller{
 		$this ->template->call_admin_template($data);
 	}
 
-	public function recipients(){
+	public function recipients($success_status = NULL){
+		$success_msg = isset($success_status)? "Recipients uploaded successfully" : NULL ;
+		$data['msg'] = $success_msg;
 		$data['content'] = 'users/recepients_v';
 		$data['user_data'] = $this->m_users->get_recepients();
 		$data['user_data_faulty'] = $this->m_users->get_faulty_recepients();
@@ -257,6 +259,7 @@ class Users extends MY_Controller{
 		// include 'PHPExcel/IOFactory.php';
 		// include 'PHPExcel/PHPExcel.php';
 
+		// $inputFileName = 'excel_files/garissa_sms_recepients_updated.xlsx';
 		$inputFileName = 'uploads/excel/'.$file_name;
 
 		$objReader = new PHPExcel_Reader_Excel2007();
@@ -340,7 +343,7 @@ class Users extends MY_Controller{
 					$email = $r_data[6];
 					$number_length = isset($phone)?strlen($phone):0;
 					// echo $phone;
-					echo "Number Length:  ".$number_length;
+					// echo "Number Length:  ".$number_length;
 					if ($number_length != 12) {
 						if (isset($fault_index)) {
 							$fault_index = 3;//both error in phone and district
@@ -350,6 +353,8 @@ class Users extends MY_Controller{
 						}
 							$status = 2;
 					}
+
+					$fault_index = isset($fault_index)? $fault_index:0;
 
 					$sms_status = isset($status)? $status: 1;
 					$rec = array();
@@ -367,12 +372,12 @@ class Users extends MY_Controller{
 
 					array_push($rec, $rec_data);
 					$insertion = $this->db->insert_batch('recepients',$rec);
-				echo "QUERY SUCCESSFUL. ".$insertion." ".mysql_insert_id()."</br>";
+				// echo "QUERY SUCCESSFUL. ".$insertion." ".mysql_insert_id()."</br>";
 		}
 		
-					// };
+		unlink($inputFileName);
 		// echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
-		redirect( base_url().'users/recipients');
+		redirect( base_url().'users/recipients/1');
 
 	}//end of recepient upload
 

@@ -161,12 +161,11 @@
         </div>
 
     </div>
+                        <?php $message = isset($msg)? '<p>Recipient upload was successful <i class="fa fa-check-circle"></i></p>' : NULL; echo $message;?>
 
                         <div class="panel panel-inverse panel-with-tabs" data-sortable-id="ui-unlimited-tabs-1">
                         <div class="panel-heading p-0">
-                            <div class="panel-heading-btn m-r-10 m-t-10">
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                            </div>
+                            
                             <!-- begin nav-tabs -->
                             <div class="tab-overflow">
                                 <ul class="nav nav-tabs nav-tabs-inverse">
