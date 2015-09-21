@@ -49,6 +49,7 @@
     <script src="<?php echo base_url().'assets/template/plugins/jquery/jquery-1.9.1.min.js';?>"></script>
     <!-- ================== END BASE CSS STYLE ================== -->
     <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/DataTables/css/data-table.css';?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/template/plugins/DataTables/TableTools/css/dataTables.tableTools.css';?>" rel="stylesheet">
     
     <!-- ================== BEGIN BASE JS ================== -->
     <script src="<?php echo base_url().'assets/template/plugins/pace/pace.min.js';?>"></script>
@@ -159,6 +160,7 @@
     
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
     <script src="<?php echo base_url().'assets/template/plugins/DataTables/js/jquery.dataTables.js';?>"></script>
+    <script src="<?php echo base_url().'assets/template/plugins/DataTables/TableTools/js/dataTables.tableTools.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/plugins/morris/raphael.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/plugins/morris/morris.js';?>"></script>
     <script src="<?php echo base_url().'assets/template/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js';?>"></script>
@@ -169,7 +171,7 @@
     <script src="<?php echo base_url().'assets/template/js/apps.min.js';?>"></script>
     <script src="<?php echo base_url().'assets/plugins/bootstrap-switch/bootstrap-switch.js';?>"></script>
     <script src="<?php echo base_url().'assets/plugins/select2/select2.min.js';?>"></script>
-    <script src=""></script>
+    <!-- <script src=""></script> -->
     
 
     <!-- ================== END PAGE LEVEL JS ================== -->

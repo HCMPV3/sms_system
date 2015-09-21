@@ -1,0 +1,1823 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"upload",
+				"upload_excel"
+			],
+			[
+				"distri",
+				"district"
+			],
+			[
+				"resul",
+				"result"
+			],
+			[
+				"sms",
+				"sms_content"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"categor",
+				"category_id"
+			],
+			[
+				"rename",
+				"rename_div"
+			],
+			[
+				"update",
+				"update_name"
+			],
+			[
+				"data-",
+				"data-cat"
+			],
+			[
+				"category",
+				"category_name"
+			],
+			[
+				"messa",
+				"message_content"
+			],
+			[
+				"sms_",
+				"sms_body"
+			],
+			[
+				"distir",
+				"district"
+			],
+			[
+				"county",
+				"county"
+			],
+			[
+				"count",
+				"county_id"
+			],
+			[
+				"opt",
+				"option	Tag"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"categ",
+				"categories"
+			],
+			[
+				"distr",
+				"district_data"
+			],
+			[
+				"distric",
+				"district_data"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"cate",
+				"category-selection"
+			],
+			[
+				"boots",
+				"bootstrap-switch"
+			],
+			[
+				"recepient",
+				"recepient_id"
+			],
+			[
+				"redire",
+				"redirect_url"
+			],
+			[
+				"inset",
+				"insertion_data"
+			],
+			[
+				"login",
+				"login_error"
+			],
+			[
+				"total",
+				"total_cost"
+			],
+			[
+				"current",
+				"current_balance"
+			],
+			[
+				"expiries",
+				"expiries_array"
+			],
+			[
+				"order",
+				"order_id"
+			],
+			[
+				"facility",
+				"facility_code"
+			],
+			[
+				"commodity",
+				"commodity"
+			],
+			[
+				"poten",
+				"potential_expiries"
+			],
+			[
+				"potenti",
+				"potential_expiries_dashboard"
+			],
+			[
+				"sms_da",
+				"sms_data"
+			],
+			[
+				"phone",
+				"phone_numbers"
+			],
+			[
+				"add_user",
+				"add_users_form"
+			],
+			[
+				"redis",
+				"redistribute"
+			],
+			[
+				"DISTRICT",
+				"district_name"
+			],
+			[
+				"pro",
+				"product_details"
+			],
+			[
+				"commodity_arr",
+				"commodity_array"
+			],
+			[
+				"meds",
+				"meds_total"
+			],
+			[
+				"url",
+				"urldecode"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"downlo",
+				"download_contents"
+			],
+			[
+				"attach",
+				"attach_file"
+			],
+			[
+				"hcm",
+				"hcmp_functions"
+			],
+			[
+				"commod",
+				"commodity_id"
+			],
+			[
+				"facilit",
+				"facility_details"
+			],
+			[
+				"new",
+				"new_order_no"
+			],
+			[
+				"table",
+				"table_data"
+			],
+			[
+				"district",
+				"district"
+			],
+			[
+				"active",
+				"active_facilities"
+			],
+			[
+				"pote",
+				"potential_expiries"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"cateog",
+				"category_name"
+			],
+			[
+				"produc",
+				"products_img"
+			],
+			[
+				"result",
+				"result_array"
+			],
+			[
+				"product",
+				"product_id"
+			],
+			[
+				"div",
+				"div_split_counter"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"coun",
+				"count_rows"
+			],
+			[
+				"last",
+				"last_seen"
+			],
+			[
+				"last_see",
+				"last_seen"
+			],
+			[
+				"added",
+				"added_stock_count"
+			],
+			[
+				"redistr",
+				"redistributed_count"
+			],
+			[
+				"decomm",
+				"decommissioned_count"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"email",
+				"email_address"
+			],
+			[
+				"faci",
+				"facility_code"
+			],
+			[
+				"system",
+				"system_usage_temp"
+			],
+			[
+				"faclity",
+				"facility_code"
+			],
+			[
+				"last_seen",
+				"last_seen_count"
+			],
+			[
+				"final",
+				"final_array"
+			],
+			[
+				"report",
+				"report_type"
+			],
+			[
+				"get_facil",
+				"get_facility_data_issues"
+			],
+			[
+				"DOCTRI",
+				"Doctrine_Manager"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"brand",
+				"brands_drop"
+			],
+			[
+				"catog",
+				"category_id"
+			],
+			[
+				"Doctrin",
+				"Doctrine_Manager"
+			],
+			[
+				"read",
+				"readonly"
+			],
+			[
+				"reset",
+				"reset_user_id"
+			],
+			[
+				"passwor",
+				"password_reset"
+			],
+			[
+				"rese",
+				"reset_pwd"
+			],
+			[
+				"alertif",
+				"alertify_exec"
+			],
+			[
+				"facili",
+				"facility_details"
+			],
+			[
+				"ce",
+				"cellphone"
+			],
+			[
+				"using",
+				"using_hcmp"
+			],
+			[
+				"exce",
+				"excels"
+			],
+			[
+				"sy",
+				"synthesised"
+			],
+			[
+				"array",
+				"array	$… = array (…)"
+			],
+			[
+				"excel",
+				"excel_commodity_details"
+			],
+			[
+				"commodi",
+				"commodity_source"
+			],
+			[
+				"sub",
+				"sub_cat_name"
+			],
+			[
+				"number",
+				"number_of_id"
+			],
+			[
+				"row",
+				"rowData"
+			],
+			[
+				"array_c",
+				"array_combine"
+			],
+			[
+				"inner",
+				"inner_array"
+			],
+			[
+				"calluser",
+				"call_user_func_array"
+			],
+			[
+				"assign",
+				"assign_properties"
+			],
+			[
+				"default",
+				"default_graph_"
+			],
+			[
+				"dem_graph",
+				"dem_graph_"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/modules/users/controllers/users.php",
+			"settings":
+			{
+				"buffer_size": 12195,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/users/views/recepients_v.php",
+			"settings":
+			{
+				"buffer_size": 24926,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/users/views/category_v.php",
+			"settings":
+			{
+				"buffer_size": 10342,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/users/views/users_v.php",
+			"settings":
+			{
+				"buffer_size": 5333,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/template/views/template.php",
+			"settings":
+			{
+				"buffer_size": 12038,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Karsan/Assets/Scripts/DataTables-1.10.7/DataTables-1.10.7/extensions/TableTools/examples/swf_path.html",
+			"settings":
+			{
+				"buffer_size": 17402,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/users/models/m_users.php",
+			"settings":
+			{
+				"buffer_size": 4419,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/sms/controllers/sms.php",
+			"settings":
+			{
+				"buffer_size": 6439,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/modules/sms/views/sms_home.php",
+			"settings":
+			{
+				"buffer_size": 9495,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Karsan/Assets/Downloaded/Color Admin/html/ui_unlimited_tabs.html",
+			"settings":
+			{
+				"buffer_size": 107807,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/sms_system",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/models",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/views",
+		"/C/xampp/htdocs/sms_system/application/modules/home/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/mail/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/sms/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/template/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/users",
+		"/C/xampp/htdocs/sms_system/application/modules/users/controllers",
+		"/C/xampp/htdocs/sms_system/application/modules/users/views",
+		"/C/xampp/htdocs/sms_system/assets/template",
+		"/C/xampp/htdocs/sms_system/assets/template/plugins",
+		"/C/xampp/htdocs/sms_system/assets/template/plugins/DataTables",
+		"/C/xampp/htdocs/sms_system/assets/template/plugins/DataTables/TableTools",
+		"/C/xampp/htdocs/sms_system/assets/template/plugins/DataTables/TableTools/swf",
+		"/C/xampp/htdocs/sms_system/system/libraries/PHPExcel"
+	],
+	"file_history":
+	[
+		"/C/Karsan/Assets/Scripts/DataTables-1.10.7/DataTables-1.10.7/extensions/TableTools/Readme.md",
+		"/C/xampp/htdocs/sms_system/application/config/database.php",
+		"/C/xampp/htdocs/sms_system/application/modules/sms/views/sms_home.php",
+		"/C/xampp/htdocs/sms_system/application/modules/users/views/recepients_v.php",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/controllers/auth.php",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/models/auth_m.php",
+		"/C/xampp/htdocs/sms_system/application/modules/sms/controllers/sms.php",
+		"/C/xampp/htdocs/sms_system/application/modules/home/controllers/home.php",
+		"/C/xampp/htdocs/sms_system/application/modules/users/models/m_users.php",
+		"/C/xampp/htdocs/sms_system/application/config/autoload.php",
+		"/C/xampp/htdocs/sms_system/application/modules/sms/models/sms_model.php",
+		"/C/Karsan/Work/Sms System/DB/facilities_as_at_20th_Sept_2015.sql",
+		"/C/xampp/htdocs/sms_system/application/modules/auth/views/auth_v2.php",
+		"/C/xampp/htdocs/sms_system/application/modules/template/controllers/template.php",
+		"/C/xampp/htdocs/sms_system/application/modules/template/views/template.php",
+		"/C/xampp/htdocs/sms_system/application/core/MY_Controller.php",
+		"/C/xampp/htdocs/sms_system/system/libraries/PHPExcel/IOFactory.php",
+		"/C/xampp/htdocs/sms_system/application/modules/sms/views/sms_home_individual.php",
+		"/C/Karsan/Work/HCMP/DB/procedures_all.sql",
+		"/C/xampp/htdocs/sms_system/application/modules/template/models/template_m.php",
+		"/C/xampp/htdocs/sms_system/application/modules/template/views/template_default.php",
+		"/C/xampp/htdocs/sms_system/application/modules/users/controllers/users.php",
+		"/C/xampp/htdocs/sms_system/application/modules/users/views/users_v.php",
+		"/C/xampp/htdocs/sms_system/application/modules/users/views/category_v.php",
+		"/C/xampp/htdocs/sms_system/application/modules/template/views/sidebar.php",
+		"/C/xampp/htdocs/sms_system/application/modules/home/views/home_default.php",
+		"/C/xampp/htdocs/sms_system/application/config/routes.php",
+		"/C/xampp/htdocs/sms_system/application/core/index.html",
+		"/C/xampp/htdocs/sms_system/assets/template/css/style.min.css",
+		"/C/xampp/htdocs/sms_system/assets/auth/css/style.min.css",
+		"/C/Karsan/Work/HCMP/DB/Back Ups/kemsa_commodities.sql",
+		"/C/Karsan/Work/Sms System/DB/counties_districts.sql",
+		"/C/xampp/htdocs/temp_uploader/application/views/welcome_message.php",
+		"/C/Karsan/Work/Sms System/DB/counties_districts(1).sql",
+		"/C/Karsan/Work/HCMP/DB/Back Ups/proc.sql",
+		"/C/Karsan/Work/HCMP/DB/Back Ups/procedures_all.sql",
+		"/C/xampp/htdocs/ums/dbv/data/schema/students.sql",
+		"/C/xampp/htdocs/ums/application/modules/student/views/student_sidebar.php",
+		"/C/xampp/htdocs/ums/application/modules/student/views/student_template.php",
+		"/C/xampp/htdocs/ums/application/modules/student/models/student_model.php",
+		"/C/xampp/htdocs/ums/application/modules/student/views/student_compose.php",
+		"/C/xampp/htdocs/ums/.gitignore",
+		"/C/xampp/htdocs/ums/application/modules/notes/controllers/notes.php",
+		"/C/xampp/htdocs/ums/application/modules/lecturer/controllers/lecturer.php",
+		"/C/xampp/htdocs/ums/application/modules/student/controllers/student.php",
+		"/C/xampp/htdocs/ums/application/config/database.php",
+		"/C/xampp/htdocs/sms_system/assets/auth/js/apps.min.js",
+		"/C/Users/Seth/AppData/Local/Temp/1-m_shop.php",
+		"/C/Users/Seth/AppData/Local/Temp/1-shop.php",
+		"/C/Users/Seth/AppData/Local/Temp/1-database.php",
+		"/C/xampp/htdocs/sms_system/.gitignore",
+		"/C/Karsan/Series/Narcos/Narcos.S01E04.WEBRip.x264-TASTETV[rarbg]/Narcos.S01E04.WEBRip.x264-TASTETV.mp4",
+		"/C/Karsan/Assets/Downloaded/Color Admin/html/form_elements.html",
+		"/C/xampp/htdocs/ums/application/modules/template/controllers/template.php",
+		"/C/xampp/htdocs/ums/assets/auth/css/theme/default.css",
+		"/C/xampp/htdocs/ums/dbv/data/revisions/04/registration_changes.sql",
+		"/C/xampp/htdocs/ums/application/config/autoload.php",
+		"/C/xampp/htdocs/ums/application/modules/user/views/registration.php",
+		"/C/xampp/htdocs/ums/application/modules/user/models/m_user.php",
+		"/C/xampp/htdocs/ums/application/modules/auth/views/auth_v2.php",
+		"/C/xampp/htdocs/ums/application/modules/user/controllers/user.php",
+		"/C/xampp/htdocs/ums/application/modules/auth/models/auth_m.php",
+		"/C/xampp/htdocs/ums/application/modules/auth/controllers/auth.php",
+		"/C/xampp/htdocs/ums/application/modules/template/views/student_template.php",
+		"/C/Users/Seth/Documents/BlackBerry/Backup/BlackBerry Curve 8520 (09-01-2015).bbb",
+		"/C/xampp/htdocs/HCMP/application/views/county/county_stock_data/county_expiries_v.php",
+		"/C/Karsan/Work/HCMP/DB/procedures.sql",
+		"/C/Karsan/Work/HCMP/DB/facility_monitoring_new.sql",
+		"/C/xampp/htdocs/HCMP/application/controllers/orders.php",
+		"/C/xampp/htdocs/HCMP/application/views/subcounty/subcounty_home_v.php",
+		"/C/xampp/htdocs/HCMP/application/views/facility/facility_home_v.php",
+		"/C/xampp/htdocs/zerocorp/assets/backend/js/inspinia.js",
+		"/C/xampp/htdocs/zerocorp/application/modules/template/views/sidebar.php",
+		"/C/xampp/htdocs/zerocorp/application/modules/products/controllers/products.php",
+		"/C/xampp/htdocs/zerocorp/application/config/config.php",
+		"/C/xampp/htdocs/zerocorp/index.php",
+		"/C/Karsan/Assets/Downloaded/Inspinia 2015/webapplayers.com/inspinia_admin-v2.2/tabs_panels.html",
+		"/C/xampp/htdocs/zerocorp/application/modules/products/views/products_v.php",
+		"/C/xampp/htdocs/zerocorp/application/modules/admin/controllers/admin.php",
+		"/C/xampp/htdocs/zerocorp/application/modules/home/controllers/home.php",
+		"/C/xampp/htdocs/zerocorp/application/config/routes.php",
+		"/C/xampp/htdocs/zerocorp/application/modules/template/controllers/template.php",
+		"/C/xampp/htdocs/zerocorp/.gitignore",
+		"/C/xampp/htdocs/zerocorp/dbv/data/revisions/03/orders.sql",
+		"/C/xampp/htdocs/zerocorp/application/modules/products/views/products_v_all.php",
+		"/C/xampp/htdocs/zerocorp/.htacess",
+		"/K/Games/COD-Modern Warfare 3/admin/karsan.dspl",
+		"/K/Games/COD-Modern Warfare 3/admin/server.cfg",
+		"/C/xampp/htdocs/HCMP/application/models/commodities.php",
+		"/C/xampp/htdocs/HCMP/application/controllers/home.php",
+		"/C/Karsan/Work/HCMP/Meds Table/commodities.sql",
+		"/C/xampp/htdocs/temp_uploader/application/config/database.php",
+		"/C/xampp/htdocs/temp_uploader/application/controllers/ancestor.php",
+		"/C/xampp/htdocs/HCMP/system/libraries/Hcmp_functions.php",
+		"/C/xampp/htdocs/HCMP/application/models/facility_transaction_table.php",
+		"/C/xampp/htdocs/HCMP/application/config/database.php",
+		"/C/xampp/htdocs/HCMP/application/controllers/sms.php",
+		"/C/xampp/htdocs/temp_uploader/application/controllers/facility_update.php",
+		"/C/xampp/htdocs/temp_uploader/sampledata/facility_list.xlsx",
+		"/C/Karsan/Work/HCMP/DB/Back Ups/hcmp_rtk 2015-08-24.sql",
+		"/C/xampp/htdocs/HCMP/application/views/national/national_home_v.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/add_users_multiple.php",
+		"/C/xampp/htdocs/HCMP/.gitignore",
+		"/C/xampp/htdocs/HCMP/application/controllers/national.php",
+		"/C/xampp/htdocs/HCMP/application/controllers/facility_activation.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/facility_activation_v.php",
+		"/C/xampp/htdocs/HCMP/application/libraries/mpdf/examples/example36_annotations_and_Attached_files.php",
+		"/C/xampp/htdocs/HCMP/application/models/facility_stock.php",
+		"/C/xampp/htdocs/HCMP/application/views/facility/facility_reports/potential_expiries_v.php",
+		"/C/xampp/htdocs/HCMP/application/models/facilities.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/report_templates/side_bar_v.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/report_templates/high_charts_template_v_national.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/template/dashboard_v.php",
+		"/C/xampp/htdocs/HCMP/application/views/shared_files/template/dashboard_template_v.php",
+		"/C/xampp/htdocs/HCMP/application/controllers/kenya.php",
+		"/C/xampp/htdocs/HCMP/application/views/national/reports_home.php",
+		"/C/xampp/htdocs/HCMP/application/views/national/national_v.php",
+		"/C/xampp/htdocs/HCMP/assets/css/styles.css",
+		"/C/xampp/htdocs/HCMP/application/views/national/ajax/threashhold_v.php",
+		"/C/xampp/htdocs/sms_system/user_guide/nav/prototype.lite.js",
+		"/C/Karsan/Assets/Downloaded/Color Admin/seantheme.com/color-admin-v1.6/admin/html/table_manage_tabletools.html",
+		"/C/Karsan/Assets/Downloaded/Color Admin/seantheme.com/color-admin-v1.6/admin/html/ui_modal_notification.html",
+		"/C/xampp/htdocs/sms_system/application/modules/mail/controllers/mail.php",
+		"/C/Karsan/Assets/Downloaded/Color Admin/seantheme.com/color-admin-v1.6/admin/html/assets/css/style.min.css",
+		"/C/xampp/htdocs/sms_system/user_guide/doc_style/template.html",
+		"/C/xampp/htdocs/sms_system/application/config/config.php",
+		"/C/xampp/htdocs/sms_system/application/third_party/MX/Controller.php",
+		"/C/xampp/htdocs/HCMP/application/models/facility_stocks.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules\\template\\views",
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules\\home\\views",
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules\\home\\",
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules\\home",
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules\\users\\views",
+			"C:\\xampp\\htdocs\\ums\\application\\modules\\student\\views",
+			"C:\\xampp\\htdocs\\sms_system\\application\\modules",
+			"C:\\xampp\\htdocs\\HCMP\\application\\controllers",
+			"C:\\xampp\\htdocs\\HCMP\\application\\models",
+			"C:\\xampp\\htdocs\\HCMP\\application",
+			"C:\\xampp\\htdocs\\HCMP\\application\\models",
+			"C:\\xampp\\htdocs\\sms_system",
+			"C:\\xampp\\htdocs\\sms_system\\application\\third_party\\MX",
+			"C:\\xampp\\htdocs\\HCMP\\application\\controllers",
+			"C:\\xampp\\htdocs\\HCMP\\application\\config",
+			"C:\\xampp\\htdocs\\HCMP\\application\\views",
+			"C:\\xampp\\htdocs\\HCMP\\application\\views\\shared_files",
+			"C:\\Karsan\\Assets\\Downloaded\\Scale\\flatfull.com\\themes\\scale\\form-elements.html",
+			"C:\\xampp\\htdocs\\system\\libraries\\Hcmp_functions.php",
+			"C:\\xampp\\htdocs\\southerncross",
+			"C:\\xampp\\htdocs\\southerncross\\application"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"});",
+			"hcmp_rtk",
+			"modal-dialog",
+			"iofactory",
+			"io",
+			"get_user",
+			"file",
+			"hcmp_rtk",
+			"modal-dialog",
+			"rename",
+			"recie",
+			"resend_msg",
+			"county",
+			"inbox",
+			"2",
+			"\n                                    ",
+			"richard",
+			"email",
+			"recipient_id",
+			"if($active",
+			"count",
+			"recepient",
+			"hcmp_rtk",
+			"hcmp_demo",
+			"test",
+			"hcmp_rtk",
+			"facility_monitoring_new",
+			"get_unread_messages_count",
+			"student_data[",
+			"richard ka",
+			"recepients",
+			"members",
+			"recipient_id",
+			"recipient",
+			"recepient ",
+			"reci",
+			"recipien",
+			"recepients",
+			"recipient",
+			"sidebar",
+			"navbar-toggle",
+			"navbar",
+			";",
+			"navbar",
+			"data-tabl",
+			"cat_criteria",
+			"categories",
+			"M_user",
+			"create_high",
+			"kemsa",
+			"potential",
+			"ajax_request_replace_div_content",
+			"consumption",
+			"potential_expiries",
+			"potential",
+			"welcome",
+			"default",
+			"cover",
+			"facility_monitoring",
+			"call",
+			"get_facility_data_specific",
+			"call",
+			"procedure",
+			"kemsa_lists",
+			"kemsa",
+			"#",
+			"get_dist",
+			"get_facility_dashboard_notifications_graph_data",
+			"get_distinct_stocks",
+			"meds",
+			"last recieve",
+			"facility_code",
+			"optioncheck",
+			"options",
+			"3months",
+			"county_year_filter",
+			"county-filter",
+			"i work",
+			"echo \"<pre>",
+			"hcmp_rtk",
+			"The Folowing Users are currently active Under this facility",
+			"commodities",
+			"create_new",
+			"facility",
+			" asc",
+			"commodities",
+			"commorieis",
+			"county-filter",
+			"potential_expiries",
+			"potential expiries",
+			"collapse",
+			"potential_expiries",
+			"potential",
+			"panel-body",
+			"in",
+			"collapseFour",
+			"potential_",
+			"expiries",
+			"collapseone",
+			"collapseThree",
+			"reports",
+			"dashboard",
+			"report",
+			"reports",
+			"member_id",
+			"$member;\"",
+			"add user",
+			"student",
+			";",
+			"{",
+			"}",
+			"modal-dialog",
+			"modal & Notification",
+			"tabletools",
+			"page-loade",
+			"modules",
+			"CI_Controller",
+			"sms",
+			"254726416795",
+			"+254726416795",
+			"25472641",
+			"login here",
+			"welcome to hcmp",
+			"welcome to",
+			"254723722204",
+			"254720167245",
+			"$district",
+			"$district_name"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"sms_system",
+			"hcmp_test",
+			"recepient_id",
+			"if(isset($active) && $active",
+			"recipient",
+			"test",
+			"hcmp_rtk",
+			"sms_system",
+			"test",
+			"student_data[0][",
+			"recepient_id",
+			"recepient\n",
+			";\n",
+			"category_criteria",
+			"m_user",
+			"county_period_filter",
+			"hcmp_test",
+			"recipient_id",
+			"recepient_id",
+			"$member\";",
+			"template",
+			";\n",
+			"{\n",
+			"}\n",
+			"",
+			"254728778002",
+			"254707463571",
+			"254728778002",
+			"254707463571",
+			"$link_excel=base_url('reports/create_excel_facility_order_template/'.$value['id'].'/NULL/'.$value['source']);",
+			".'/NULL'",
+			"",
+			"$link_excel=base_url('reports/create_excel_facility_order_template/'.$value['id'].'/'.$mfl.'/'.$value['source']);\n",
+			"			$link_excel=base_url('reports/create_excel_facility_order_template/'.$value['id'].'/'.$mfl.'/'.$value['source']);\n",
+			"karsanrichard@gmail.com",
+			"commodities",
+			"commodity_name",
+			"SMS",
+			"Richard Karsan",
+			"UMS",
+			"{\n",
+			"\n}",
+			"}\n",
+			"UMS",
+			"University Management System",
+			"AND f.using_hcmp = 1\n        AND l.action = 'Logged Out'",
+			"\n        AND l.action = 'Logged Out'",
+			"DATEDIFF(NOW(), MAX(l.end_time_of_event)) AS difference_in_days",
+			"MAX(l.end_time_of_event) AS last_seen,",
+			"sidebarmenu",
+			"add_multiple_users_table",
+			"\n						",
+			"\n						</td>",
+			"\n</td>",
+			"\"aaSorting\": [0,'desc']\n<",
+			"\n<",
+			">\n",
+			"/>\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/modules/users/controllers/users.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11717,
+								11717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 747.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/modules/users/views/recepients_v.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8775,
+								8790
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/modules/users/views/category_v.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10342,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8440,
+								8440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1183.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/modules/users/views/users_v.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5215,
+								5018
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1137.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/modules/template/views/template.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10500,
+								10454
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1969.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Karsan/Assets/Scripts/DataTables-1.10.7/DataTables-1.10.7/extensions/TableTools/examples/swf_path.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1425,
+								1327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/modules/users/models/m_users.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								943,
+								943
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 517.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/modules/sms/controllers/sms.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6439,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								741,
+								741
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/modules/sms/views/sms_home.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4826,
+								4826
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1248.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Karsan/Assets/Downloaded/Color Admin/html/ui_unlimited_tabs.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 107807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60025,
+								20221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6006.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sms_system.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"templt",
+				"application\\modules\\template\\views\\template.php"
+			],
+			[
+				"databa",
+				"application\\config\\database.php"
+			],
+			[
+				"m_use",
+				"application\\modules\\users\\models\\m_users.php"
+			],
+			[
+				"sms_ho",
+				"application\\modules\\sms\\views\\sms_home.php"
+			],
+			[
+				"sms_hom",
+				"application\\modules\\sms\\views\\sms_home.php"
+			],
+			[
+				"recep",
+				"application\\modules\\users\\views\\recepients_v.php"
+			],
+			[
+				"my",
+				"application\\core\\MY_Controller.php"
+			],
+			[
+				"auth_m",
+				"application\\modules\\auth\\models\\auth_m.php"
+			],
+			[
+				"recepients_v",
+				"application\\modules\\users\\views\\recepients_v.php"
+			],
+			[
+				"user",
+				"application\\modules\\users\\controllers\\users.php"
+			],
+			[
+				"sms",
+				"application\\modules\\sms\\controllers\\sms.php"
+			],
+			[
+				"sms_home",
+				"application\\modules\\sms\\views\\sms_home.php"
+			],
+			[
+				"databas",
+				"application\\config\\database.php"
+			],
+			[
+				"template_default",
+				"application\\modules\\template\\views\\template_default.php"
+			],
+			[
+				"template",
+				"application\\modules\\template\\controllers\\template.php"
+			],
+			[
+				"m_us",
+				"application\\modules\\users\\models\\m_users.php"
+			],
+			[
+				"home",
+				"application\\modules\\home\\controllers\\home.php"
+			],
+			[
+				"cate",
+				"application\\modules\\users\\views\\category_v.php"
+			],
+			[
+				"users_v",
+				"application\\modules\\users\\views\\users_v.php"
+			],
+			[
+				"side",
+				"application\\modules\\template\\views\\sidebar.php"
+			],
+			[
+				"category_v",
+				"application\\modules\\users\\views\\category_v.php"
+			],
+			[
+				"users",
+				"application\\modules\\users\\controllers\\users.php"
+			],
+			[
+				"m_users",
+				"application\\modules\\users\\models\\m_users.php"
+			],
+			[
+				"auth_v2",
+				"application\\modules\\auth\\views\\auth_v2.php"
+			],
+			[
+				"style.min.css",
+				"assets\\template\\css\\style.min.css"
+			],
+			[
+				"style.min",
+				"assets\\auth\\css\\style.min.css"
+			],
+			[
+				"style.mi",
+				"assets\\template\\css\\style.min.css"
+			],
+			[
+				"recepine",
+				"application\\modules\\users\\views\\recepients_v.php"
+			],
+			[
+				"templa",
+				"application\\modules\\template\\models\\template_m.php"
+			],
+			[
+				"m_user",
+				"application\\modules\\users\\models\\m_users.php"
+			],
+			[
+				"sms_mod",
+				"application\\modules\\sms\\models\\sms_model.php"
+			],
+			[
+				"sidebar",
+				"application\\modules\\template\\views\\sidebar.php"
+			],
+			[
+				"sms.php",
+				"application\\modules\\sms\\controllers\\sms.php"
+			],
+			[
+				"sideba",
+				"application\\modules\\template\\views\\sidebar.php"
+			],
+			[
+				"student_compose",
+				"application\\modules\\student\\views\\student_compose.php"
+			],
+			[
+				"studnet",
+				"application\\modules\\student\\models\\student_model.php"
+			],
+			[
+				"stu",
+				"application\\modules\\student\\controllers\\student.php"
+			],
+			[
+				"student",
+				"dbv\\data\\schema\\students.sql"
+			],
+			[
+				"redistributions_ajax",
+				"application\\views\\shared_files\\redistributions_ajax.php"
+			],
+			[
+				"redistibu",
+				"application\\models\\redistribution_data.php"
+			],
+			[
+				"county_donation_filter_v",
+				"application\\views\\subcounty\\reports\\county_donation_filter_v.php"
+			],
+			[
+				"reports",
+				"application\\controllers\\reports.php"
+			],
+			[
+				"student_compo",
+				"application\\modules\\student\\views\\student_compose.php"
+			],
+			[
+				"student_template",
+				"application\\modules\\student\\views\\student_template.php"
+			],
+			[
+				"template_defa",
+				"application\\modules\\template\\views\\template_default.php"
+			],
+			[
+				"recepie",
+				"application\\modules\\users\\views\\recepients_v.php"
+			],
+			[
+				"apps",
+				"assets\\auth\\js\\apps.min.js"
+			],
+			[
+				"category",
+				"application\\modules\\users\\views\\category_v.php"
+			],
+			[
+				"student_model",
+				"application\\modules\\student\\models\\student_model.php"
+			],
+			[
+				"authv2",
+				"application\\modules\\auth\\views\\auth_v2.php"
+			],
+			[
+				"facility_home",
+				"application\\views\\facility\\facility_home_v.php"
+			],
+			[
+				"hcmp",
+				"system\\libraries\\Hcmp_functions.php"
+			],
+			[
+				"potential_expiries_ajax",
+				"application\\views\\facility\\facility_reports\\ajax\\potential_expiries_ajax.php"
+			],
+			[
+				"facility_stocks",
+				"application\\models\\facility_stocks.php"
+			],
+			[
+				"county_expiries",
+				"application\\views\\subcounty\\reports\\county_expiries_v.php"
+			],
+			[
+				"county_expiries_v",
+				"application\\views\\county\\county_stock_data\\county_expiries_v.php"
+			],
+			[
+				"report",
+				"application\\controllers\\reports.php"
+			],
+			[
+				"hcmpfi",
+				"system\\libraries\\Hcmp_functions.php"
+			],
+			[
+				"subcounty",
+				"application\\views\\subcounty\\subcounty_home_v.php"
+			],
+			[
+				"side_bar_sub_county_v",
+				"application\\views\\shared_files\\report_templates\\side_bar_sub_county_v.php"
+			],
+			[
+				"report_mana",
+				"application\\views\\Admin\\report_management.php"
+			],
+			[
+				"commodities",
+				"application\\models\\commodities.php"
+			],
+			[
+				"facility_order_meds_new",
+				"application\\views\\facility\\facility_orders\\facility_order_meds_new.php"
+			],
+			[
+				"facility_transa",
+				"application\\models\\facility_transaction_table.php"
+			],
+			[
+				"order",
+				"application\\controllers\\orders.php"
+			],
+			[
+				"products",
+				"zerocorp\\application\\modules\\products\\controllers\\products.php"
+			],
+			[
+				"products_v_all",
+				"zerocorp\\application\\modules\\products\\views\\products_v_all.php"
+			],
+			[
+				"tabs_panels",
+				"inspinia_admin-v2.2\\tabs_panels.html"
+			],
+			[
+				"routes",
+				"application\\config\\routes.php"
+			],
+			[
+				"styles.css",
+				"HCMP\\assets\\css\\styles.css"
+			],
+			[
+				"orders",
+				"HCMP\\application\\controllers\\orders.php"
+			],
+			[
+				"facilities",
+				"HCMP\\application\\models\\facilities.php"
+			],
+			[
+				"hcmp_fu",
+				"HCMP\\system\\libraries\\Hcmp_functions.php"
+			],
+			[
+				"facility_sotcks",
+				"HCMP\\application\\models\\facility_stocks.php"
+			],
+			[
+				"commodit",
+				"HCMP\\application\\models\\commodities.php"
+			],
+			[
+				"facility_transaction_table",
+				"HCMP\\application\\models\\facility_transaction_table.php"
+			],
+			[
+				"database",
+				"HCMP\\application\\config\\database.php"
+			],
+			[
+				"facility",
+				"application\\controllers\\facility_update.php"
+			],
+			[
+				"potential_expiries_v",
+				"application\\views\\facility\\facility_reports\\potential_expiries_v.php"
+			],
+			[
+				"county_potential_expiry_filter_v",
+				"application\\views\\subcounty\\ajax\\county_potential_expiry_filter_v.php"
+			],
+			[
+				"subcoun",
+				"application\\views\\subcounty\\subcounty_home_v.php"
+			],
+			[
+				"nation",
+				"application\\controllers\\national.php"
+			],
+			[
+				"national",
+				"application\\views\\national\\national_home_v.php"
+			],
+			[
+				"admin",
+				"application\\controllers\\admin.php"
+			],
+			[
+				"facility_activation_v",
+				"application\\views\\shared_files\\facility_activation_v.php"
+			],
+			[
+				"facility_a",
+				"application\\controllers\\facility_activation.php"
+			],
+			[
+				"add_users_multiple",
+				"application\\views\\shared_files\\add_users_multiple.php"
+			],
+			[
+				"subcount",
+				"application\\views\\subcounty\\subcounty_home_v.php"
+			],
+			[
+				"natio",
+				"application\\controllers\\national.php"
+			],
+			[
+				"nati",
+				"application\\controllers\\national.php"
+			],
+			[
+				"nat",
+				"application\\controllers\\national.php"
+			],
+			[
+				"natiaon",
+				"application\\libraries\\mpdf\\examples\\example36_annotations_and_Attached_files.php"
+			],
+			[
+				"facility_stock",
+				"application\\models\\facility_stock.php"
+			],
+			[
+				"sidebar_v",
+				"application\\views\\shared_files\\report_templates\\side_bar_v.php"
+			],
+			[
+				"county_expiry_f",
+				"application\\views\\subcounty\\ajax\\county_expiry_filter_v.php"
+			],
+			[
+				"subcounty_",
+				"application\\views\\subcounty\\subcounty_home_v.php"
+			],
+			[
+				"side_bar_v",
+				"application\\views\\shared_files\\report_templates\\side_bar_v.php"
+			],
+			[
+				"reports_home",
+				"HCMP\\application\\views\\national\\reports_home.php"
+			],
+			[
+				"na",
+				"HCMP\\application\\controllers\\national.php"
+			],
+			[
+				"nationa",
+				"HCMP\\application\\views\\national\\national_v.php"
+			],
+			[
+				"national_v",
+				"HCMP\\application\\views\\national\\national_v.php"
+			],
+			[
+				"national_ho",
+				"HCMP\\application\\views\\national\\national_home_v.php"
+			],
+			[
+				"reports_hom",
+				"HCMP\\application\\views\\national\\reports_home.php"
+			],
+			[
+				"national_home",
+				"HCMP\\application\\views\\national\\national_home_v.php"
+			],
+			[
+				".gitignore",
+				"HCMP\\.gitignore"
+			],
+			[
+				"natioan",
+				"HCMP\\application\\controllers\\national.php"
+			],
+			[
+				"national_home_v",
+				"HCMP\\application\\views\\national\\national_home_v.php"
+			],
+			[
+				"kenya",
+				"HCMP\\application\\controllers\\kenya.php"
+			],
+			[
+				"threashhold_v",
+				"HCMP\\application\\views\\national\\ajax\\threashhold_v.php"
+			],
+			[
+				"high_charts_template_v_national",
+				"HCMP\\application\\views\\shared_files\\report_templates\\high_charts_template_v_national.php"
+			],
+			[
+				"sms_model",
+				"sms_system\\application\\modules\\sms\\models\\sms_model.php"
+			],
+			[
+				"autolo",
+				"sms_system\\application\\config\\autoload.php"
+			],
+			[
+				"ui_modal",
+				"html\\ui_modal_notification.html"
+			],
+			[
+				"template_def",
+				"sms_system\\application\\modules\\template\\views\\template_default.php"
+			],
+			[
+				"apps.min.js",
+				"assets\\auth\\js\\apps.min.js"
+			],
+			[
+				"template.php",
+				"application\\modules\\template\\controllers\\template.php"
+			],
+			[
+				"mycontr",
+				"application\\core\\MY_Controller.php"
+			],
+			[
+				"hcmp_funct",
+				"system\\libraries\\Hcmp_functions_new.php"
+			],
+			[
+				"autosms",
+				"application\\controllers\\auto_sms.php"
+			],
+			[
+				"facility_orders",
+				"application\\models\\facility_orders.php"
+			],
+			[
+				"facilitystocs",
+				"application\\models\\facility_stocks.php"
+			],
+			[
+				"repor",
+				"application\\controllers\\reports.php"
+			],
+			[
+				"facility_order_from_kemsa_v",
+				"application\\views\\facility\\facility_orders\\facility_order_from_kemsa_v.php"
+			],
+			[
+				"facilityhome",
+				"application\\views\\facility\\facility_home_v.php"
+			],
+			[
+				"stock",
+				"application\\controllers\\stock.php"
+			],
+			[
+				"facility_orde",
+				"application\\models\\facility_orders.php"
+			],
+			[
+				"facility_or",
+				"application\\models\\facility_orders.php"
+			],
+			[
+				"facility_order",
+				"application\\models\\facility_orders.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 271.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

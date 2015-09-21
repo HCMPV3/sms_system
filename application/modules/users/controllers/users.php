@@ -3,6 +3,7 @@ class Users extends MY_Controller{
 	function __construct(){
 		parent:: __construct();
 		$this->load->model('m_users');
+		$this->check_login();
 	}
 
 	public function index(){
@@ -22,12 +23,13 @@ class Users extends MY_Controller{
 	public function recipients(){
 		$data['content'] = 'users/recepients_v';
 		$data['user_data'] = $this->m_users->get_recepients();
+		$data['user_data_faulty'] = $this->m_users->get_faulty_recepients();
 		$data['category_data'] = $this->m_users->get_categories();
 		$data['district_data'] = $this->m_users->get_districts();
 		$data['county_data'] = $this->m_users->get_counties();
 		$data['usertypes'] = $this->m_users->get_usertypes();
 		$data['active'] = 'recipients';
-		// echo "<pre>";print_r($data['county_data']);echo "</pre>";exit;
+		// echo "<pre>";print_r($data['user_data_faulty']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
@@ -148,7 +150,6 @@ class Users extends MY_Controller{
 		$this->db->insert_batch('users',$user_info);
 
 		redirect(base_url().'users/members');
-
 	}
 
 	public function reset_password($id){
@@ -249,6 +250,171 @@ class Users extends MY_Controller{
 
 		// echo $counties;
 		echo json_encode($counties);
+	}
+
+	public function upload_recepients(){
+		//  Include PHPExcel_IOFactory
+		// include 'PHPExcel/IOFactory.php';
+		// include 'PHPExcel/PHPExcel.php';
+
+		$inputFileName = 'excel_files/garissa_sms_recepients_updated.xlsx';
+
+		
+		$objReader = new PHPExcel_Reader_Excel2007();
+		$objReader->setReadDataOnly(true);
+		$objPHPExcel = $objReader->load($inputFileName);
+
+
+		$sheet = $objPHPExcel->getSheet(0); 
+		$highestRow = $sheet->getHighestRow(); 
+		$highestColumn = $sheet->getHighestColumn();
+
+		// echo "<pre>";print_r($highestColumn);echo "</pre>";exit;
+		$rowData = array();
+		for ($row = 3; $row < $highestRow; $row++){ 
+		    //  Read a row of data into an array
+		    $rowData_ = $sheet->rangeToArray('A' . $row . ':X' . $row);
+		    array_push($rowData, $rowData_[0]);
+		    //  Insert row data array into your database of choice here
+		}
+
+		// echo "<pre>";print_r($rowData);echo "</pre>";exit;
+		/*
+		names
+		facility_name
+		mfl
+		district
+		id_number
+		mobile
+		email
+		trainingsite
+		*/
+
+		foreach ($rowData as $r_data) {
+			// echo "<pre>";print_r($r_data);echo "</pre>";
+			$status = 1;
+			$district = strtolower($r_data[3]);
+			$district = ucfirst($district);
+			$fault_index = NULL;
+			// echo $district;
+
+			$facility_code = $r_data[2];
+
+			$query = "SELECT * FROM facilities WHERE facility_code = '$facility_code'";
+			// $query = "SELECT * FROM districts WHERE district = '$district'";
+
+			$result = $this->db->query($query)->result_array();
+			// $district_name = $result[0]['district'];
+
+			// echo "<pre>";print_r($result);echo "</pre>";
+			if (empty($result)) {
+			$queryy = "SELECT * FROM districts WHERE district = '$district'";
+			$resultt = $this->db->query($queryy)->result_array();
+				// echo $r_data[0]."</br>";
+				// $query = "";
+			if (empty($resultt)) {
+				$fault_index = 1;
+				$status = 2;
+				$district_id = NULL;
+			}else{
+				$district_id = $result[0]['id'];
+				$fault_index = 0;
+				// echo "<pre>";print_r($resultt); echo "</pre>";
+			}
+			}//if no facility code match
+			else{
+				$district_id = $result[0]['district'];
+			}
+		
+					$names = $r_data[0];
+					$phone = $r_data[5];
+					if (isset($phone)) {
+						$phone = preg_replace('/\s+/', '', $phone);
+						$phone = ltrim($phone, '0');
+						$phone = '254'.$phone;
+					}else{
+						$phone = NULL;
+					}
+					
+					$email = $r_data[6];
+					$number_length = isset($phone)?strlen($phone):0;
+					// echo $phone;
+					echo "Number Length:  ".$number_length;
+					if ($number_length != 12) {
+						if (isset($fault_index)) {
+							$fault_index = 3;//both error in phone and district
+							// $status = 2;
+						}else{
+							$fault_index = 2;
+						}
+							$status = 2;
+					}
+
+					$sms_status = isset($status)? $status: 1;
+					$rec = array();
+					$rec_data = array(
+						'fname' => $names,
+						'email' => $email,
+						'phone_no' => $phone,
+						// 'email_status' => 1,
+						'sms_status' => $sms_status,
+						'user_type' => 1,
+						'category_id' => 1,
+						'district_id'=>$district_id,
+						'fault_index'=>$fault_index
+						);
+
+					array_push($rec, $rec_data);
+					$insertion = $this->db->insert_batch('recepients',$rec);
+				echo "QUERY SUCCESSFUL. ".$insertion." ".mysql_insert_id()."</br>";
+		}
+		
+					// };
+		echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
+
+	}//end of recepient upload
+
+	public function download_excel(){
+		// We'll be outputting an excel file
+		$filename = "excel_files/sms_recipients_template.xls";
+
+		$excel2 = PHPExcel_IOFactory::createReader('Excel5');
+    	$excel2=$objPHPExcel= $excel2->load($filename);
+    	$objWriter = PHPExcel_IOFactory::createWriter($excel2, 'Excel5');
+
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+		// It will be called file.xls
+		header("Content-Disposition: attachment; filename=$filename");
+		// Write file to the browser
+        $objWriter -> save('php://output');
+       $objPHPExcel -> disconnectWorksheets();
+       unset($objPHPExcel);
+	}
+
+	public function upload_excel(){
+		// echo "<pre>";print_r($this->input->post());echo "</pre>";exit;
+		// ini_set('memory_limit', '1024M'); // or you could use 1G
+		$config['upload_path'] = 'excel_files/';
+		$config['allowed_types'] = 'xls|xlsx';
+		$config['max_size']	= '2048';
+
+		$res = $this->load->library('upload', $config);
+		// echo "<pre>";print_r($res);exit;
+		// $field_name = "recipient_excel";
+		if ( ! $this->upload->do_upload("recipient_excel"))
+		{
+			echo "<pre>";print_r($this->upload->display_errors());echo "</pre>";
+			echo "I didnt work";
+		}
+		else
+		{
+			// $data = array('upload_data' => $this->upload->data());
+
+			echo "I worked";
+		}
 	}
 }
 ?>

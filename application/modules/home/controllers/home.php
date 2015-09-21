@@ -4,6 +4,7 @@ class Home extends MY_Controller {
 	function __construct(){
 		parent:: __construct();
 		$this -> load ->model('users/m_users');
+		$this -> check_login();
 		// $this -> load -> module("template");
 	}
 

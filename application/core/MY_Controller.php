@@ -34,10 +34,23 @@ class MY_Controller extends MX_Controller
 		return $user_details;
 	}
 
-	function login_reroute()
-	{
-				
-	}
+	function check_login($current = NULL)
+    {
+        if(!$this->session->userdata('logged_in'))
+        {
+            redirect(base_url() . 'auth');
+        }
+
+        else
+        {
+            $usertype = $this->session->userdata('usertype');
+
+            if($usertype != $current)
+            {
+                redirect(base_url() . 'auth');
+            }
+        }
+    }
 	
 	function logout()
 	{

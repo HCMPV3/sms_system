@@ -157,7 +157,7 @@ $(document).ready(function(){
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');
-            // location.reload();
+            location.reload();
         }
     });//end of ajax
     }//end of else
@@ -229,6 +229,7 @@ $(document).ready(function(){
                             value:value.id,
                             text:value.district
                         }));
+                    $('#district').select2("val", "all");;
                         // console.log(value.id);
                     });//populate the option thing
                     // console.log(district_data);

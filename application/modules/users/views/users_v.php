@@ -105,7 +105,12 @@
 
 <script>
     $(document).ready(function(){
-        $('#data-table').DataTable();
+        $('#data-table').DataTable( {
+        dom: 'T<"clear">lfrtip',
+        tableTools: {
+            "sSwfPath": "<?php echo base_url().'assets/template/plugins/DataTables/TableTools/swf/copy_csv_xls_pdf.swf' ?>"
+        }
+    } );
         $(".submit").click(function(){
             // $('#add_users_form').submit();
         });

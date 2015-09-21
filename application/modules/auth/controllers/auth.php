@@ -1,4 +1,4 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 * 
 */
@@ -29,6 +29,7 @@ class Auth extends MY_Controller
 		// echo $hashed;exit;
 		$authentication = $this->auth_m->getUser($email, $hashed);
 
+		// echo "<pre>";print_r($authentication);exit;
 		if($authentication['auth'] == TRUE)
 		{
 			$user_id = $authentication['user_id'];
@@ -46,7 +47,7 @@ class Auth extends MY_Controller
 			// $redirect_url = $this->getRedirect($user_type, $user_id);
 			// echo $redirect_url;die();
 			
-			// // echo "<pre>";print_r($this->session->all_userdata());die;
+			// echo "<pre>";print_r($this->session->all_userdata());die;
 			// // echo base_url() . $redirect_url;die();
 			redirect(base_url().'home');
 		}

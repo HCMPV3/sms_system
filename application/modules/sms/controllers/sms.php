@@ -5,6 +5,7 @@ class Sms extends MY_Controller{
 		// $this -> load -> module('template');
 		$this -> load -> model('sms_model');
 		$this -> load -> model('users/m_users');
+		$this -> check_login();
 	}
 
 	public function index($to = NULL){

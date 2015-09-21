@@ -6,7 +6,7 @@
         border-top: none!important;
     }
     .margin-kiasi{
-        margin: 10px 0;
+        margin: 0px 5px;
     }
     .panel-new{
         background: #ffffff;
@@ -17,88 +17,10 @@
 </style>
 <div id="content" class="content">
 <h1 class="page-header" style="float:left">Recipient Management<small></small></h1>
-            <a href="#modal-dialog" style="float:right;margin:0;" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recipient</a>
+            <a href="#modal-dialog" style="float:right;" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Recipient</a>
+            <a href="#modal-dialog-excel" style="float:right;" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Upload Recipient Excel</a>
+            <a href="<?php echo base_url().'users/download_excel'; ?>" style="float:right;" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Download Excel Template</a>
     <div class="row">
-        <div class="col-md-12">
-            <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
-            <div class="panel-new panel-inverse">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Recipients</h4>
-                </div>
-                <div class="panel-new panel-body">
-                    <div class="table-responsive">
-
-                        <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>Full Names</th>
-                                    <!-- <th>Last Name</th> -->
-                                    <th>County</th>
-                                    <th>Sub County</th>
-                                    <th>Category</th>
-                                    <!-- <th>Email</th> -->
-                                    <th>Phone</th>
-                                    <!-- <th>Email Recieval</th> -->
-                                    <!-- <th>Action Email</th> -->
-                                    <th>SMS Receival</th>
-                                    <th>Action</th>
-                                    <th>Date added</th>
-                                    <!-- <th>Delete</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                    <?php 
-                                    foreach ($user_data as $key) {
-                                        echo "<tr>";
-                                         echo "<td>".$key['fname']."</td>";
-                                         $county = isset($key['county'])? $key['county'] : ' - ';
-                                         echo "<td>".$county."</td>";
-                                         $district = isset($key['district'])? $key['district'] : ' - ';
-                                         echo "<td>".$district."</td>";
-                                         // echo "<td>".$key['lname']."</td>";
-                                         echo "<td>".$key['category']."</td>";
-                                         // echo "<td>".$key['email']."</td>";
-                                         echo "<td>".$key['phone_no']."</td>";
-                                      /*   if ($key['email_status'] == 2) {
-                                         echo "<td>No</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
-                                                </td>";
-                                         }elseif($key['email_status'] == 1){
-                                         echo "<td>Yes</td>
-                                                <td>
-                                                <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
-                                                </td>";
-                                         }*/
-
-                                         if ($key['sms_status'] == '2') {
-                                            $stmt = "No";
-                                            $status = "<a class=\"btn btn-success fxwdth\" href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate</a>";
-                                                
-                                         }elseif($key['sms_status'] == '1'){
-                                            $stmt = "Yes";
-                                            $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
-                                         }
-                                         echo "<td>".$stmt."</td>
-                                                <td>
-                                                ".$status."
-                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
-                                                </td>
-                                                ";
-                                         echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
-                                         /*echo "<td>
-                                                
-                                                </td>";*/
-                                        echo "</tr>";
-                                     } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="modal fade" id="modal-dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -211,12 +133,210 @@
             </div>
         </div>
 
+        <div class="modal fade" id="modal-dialog-excel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Upload Recipient Excel</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo form_open_multipart('users/upload_excel'); ?>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td><label>Choose file:</label></td>
+                                    <td><input type="file" name="recipient_excel" size="20"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><button type="submit" value='upload' name="submit">Upload</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            
+                        <?php echo form_close(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+                        <div class="panel panel-inverse panel-with-tabs" data-sortable-id="ui-unlimited-tabs-1">
+                        <div class="panel-heading p-0">
+                            <div class="panel-heading-btn m-r-10 m-t-10">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            </div>
+                            <!-- begin nav-tabs -->
+                            <div class="tab-overflow">
+                                <ul class="nav nav-tabs nav-tabs-inverse">
+                                    <li class="prev-button"><a href="javascript:;" data-click="prev-tab" class="text-success"><i class="fa fa-arrow-left"></i></a></li>
+                                    <li class="active"><a href="#nav-tab-1" data-toggle="tab">Active Recipients</a></li>
+                                    <li class=""><a href="#nav-tab-2" data-toggle="tab">Recipients Missing Information</a></li>
+                                   
+                                    <!-- <li class="next-button"><a href="javascript:;" data-click="next-tab" class="text-success"><i class="fa fa-arrow-right"></i></a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="nav-tab-1">
+                                <div class="panel-new panel-body">
+                                    <div class="table-responsive">
+                                        <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Full Names</th>
+                                                    <!-- <th>Last Name</th> -->
+                                                    <th>County</th>
+                                                    <th>Sub County</th>
+                                                    <th>Category</th>
+                                                    <!-- <th>Email</th> -->
+                                                    <th>Phone</th>
+                                                    <!-- <th>Email Recieval</th> -->
+                                                    <!-- <th>Action Email</th> -->
+                                                    <th>SMS Receival</th>
+                                                    <th>Action</th>
+                                                    <th>Date added</th>
+                                                    <!-- <th>Delete</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                    <?php 
+                                                    foreach ($user_data as $key) {
+                                                        echo "<tr>";
+                                                         echo "<td>".$key['fname']."</td>";
+                                                         $county = isset($key['county'])? $key['county'] : ' - ';
+                                                         echo "<td>".$county."</td>";
+                                                         $district = isset($key['district'])? $key['district'] : ' - ';
+                                                         echo "<td>".$district."</td>";
+                                                         // echo "<td>".$key['lname']."</td>";
+                                                         echo "<td>".$key['category']."</td>";
+                                                         // echo "<td>".$key['email']."</td>";
+                                                         echo "<td>".$key['phone_no']."</td>";
+                                                      /*   if ($key['email_status'] == 2) {
+                                                         echo "<td>No</td>
+                                                                <td>
+                                                                <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
+                                                                </td>";
+                                                         }elseif($key['email_status'] == 1){
+                                                         echo "<td>Yes</td>
+                                                                <td>
+                                                                <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
+                                                                </td>";
+                                                         }*/
+
+                                                         if ($key['sms_status'] == '2') {
+                                                            $stmt = "No";
+                                                            $status = "<a class=\"btn btn-success fxwdth\" href=".base_url().'users/change_status/activate/sms/'.$key['recepient_id'].">Activate</a>";
+                                                                
+                                                         }elseif($key['sms_status'] == '1'){
+                                                            $stmt = "Yes";
+                                                            $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
+                                                         }
+                                                         echo "<td>".$stmt."</td>
+                                                                <td>
+                                                                ".$status."
+                                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
+                                                                </td>
+                                                                ";
+                                                         echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
+                                                         /*echo "<td>
+                                                                
+                                                                </td>";*/
+                                                        echo "</tr>";
+                                                     } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade in" id="nav-tab-2">
+                                <div class="panel-new panel-body">
+                                    <div class="table-responsive">
+                                        <table id="data-table-2" class="table table-striped table-bordered nowrap" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Full Names</th>
+                                                    <!-- <th>Last Name</th> -->
+                                                    <th>County</th>
+                                                    <th>Sub County</th>
+                                                    <th>Category</th>
+                                                    <!-- <th>Email</th> -->
+                                                    <th>Phone</th>
+                                                    <!-- <th>Email Recieval</th> -->
+                                                    <!-- <th>Action Email</th> -->
+                                                    <th>Fault Type</th>
+                                                    <!-- <th>Action</th> -->
+                                                    <th>Date added</th>
+                                                    <!-- <th>Delete</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                    <?php 
+                                                    foreach ($user_data_faulty as $key) {
+                                                        echo "<tr>";
+                                                         echo "<td>".$key['fname']."</td>";
+                                                         $county = isset($key['county'])? $key['county'] : ' - ';
+                                                         echo "<td>".$county."</td>";
+                                                         $district = isset($key['district'])? $key['district'] : ' - ';
+                                                         echo "<td>".$district."</td>";
+                                                         // echo "<td>".$key['lname']."</td>";
+                                                         echo "<td>".$key['category']."</td>";
+                                                         // echo "<td>".$key['email']."</td>";
+                                                         echo "<td>".$key['phone_no']."</td>";
+                                                         echo "<td>".$key['fault_type']."</td>";
+                                                        /*  
+                                                        if ($key['email_status'] == 2) {
+                                                         echo "<td>No</td>
+                                                                <td>
+                                                                <a href=".base_url().'users/change_status/activate/email/'.$key['recepient_id'].">Activate Email Recieval</a>
+                                                                </td>";
+                                                         }elseif($key['email_status'] == 1){
+                                                         echo "<td>Yes</td>
+                                                                <td>
+                                                                <a href=".base_url().'users/change_status/deactivate/email/'.$key['recepient_id'].">Deactivate Email Recieval</a>
+                                                                </td>";
+                                                         }
+                                                         echo "<td>".$stmt."</td>
+                                                                <td>
+                                                                ".$status."
+                                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
+                                                                </td>
+                                                                ";
+                                                        */
+                                                         echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
+                                                         /*echo "<td>
+                                                                
+                                                                </td>";*/
+                                                        echo "</tr>";
+                                                     } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 </div>
+
 
 <script>
     $(document).ready(function(){
-        $('#data-table').DataTable();
+        $('#data-table').DataTable({
+        dom: 'T<"clear">lfrtip',
+        tableTools: {
+            "sSwfPath": "<?php echo base_url().'assets/template/plugins/DataTables/TableTools/swf/copy_csv_xls_pdf.swf' ?>"
+        }
+    });
+        $('#data-table-2').DataTable({
+        dom: 'T<"clear">lfrtip',
+        tableTools: {
+            "sSwfPath": "<?php echo base_url().'assets/template/plugins/DataTables/TableTools/swf/copy_csv_xls_pdf.swf' ?>"
+        }
+    });
         // $('.category-selection').hide();
         // $('.c-selection').hide();
         $('.sc-selection').hide();

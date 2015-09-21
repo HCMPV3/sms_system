@@ -151,6 +151,8 @@
 
 <script>
     $(document).ready(function(){
+        $("#data-table").DataTable();
+
         $(".rename").click(function(){
             // $("#category_name").html("I have been replaced");
             $(".category_id_renaming").remove();

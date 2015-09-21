@@ -10,6 +10,7 @@ class Template extends MY_Controller
     parent::__construct();
     $this->load->model('template_m');
     $this->load->model('users/m_users');
+	// $this -> check_login();
 	}
 
 	public function index()

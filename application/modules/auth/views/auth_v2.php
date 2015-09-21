@@ -56,7 +56,7 @@
                         <input type="password" name="password" class="form-control input-lg" placeholder="Password" />
                     </div>
                     <div class="login-buttons">
-                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign In</button>
                     </div>
                     <?php if(isset($message)):echo $message;endif; ?>
                 </form>
