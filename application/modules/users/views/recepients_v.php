@@ -269,6 +269,7 @@
                                                     <th>Fault Type</th>
                                                     <!-- <th>Action</th> -->
                                                     <th>Date added</th>
+                                                    <th>Action</th>
                                                     <!-- <th>Delete</th> -->
                                                 </tr>
                                             </thead>
@@ -307,6 +308,9 @@
                                                                 ";
                                                         */
                                                          echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
+                                                         echo " <td>
+                                                                <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
+                                                                </td>"
                                                          /*echo "<td>
                                                                 
                                                                 </td>";*/
