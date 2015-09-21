@@ -21,7 +21,25 @@ class Users extends MY_Controller{
 	}
 
 	public function recipients($success_status = NULL){
-		$success_msg = isset($success_status)? "Recipients uploaded successfully" : NULL ;
+		$success_msg = NULL;
+		switch ($success_status) {
+			case 'delete':
+				$success_msg = isset($success_status)? '<p>Recipient Deleted <i class="fa fa-check-circle"></i></p>' : NULL ;
+				break;
+			case 'upload':
+				$success_msg = isset($success_status)? '<p>Recipient(s) Uploaded <i class="fa fa-check-circle"></i></p>' : NULL ;
+				break;
+			case 'deactivate':
+				$success_msg = isset($success_status)? '<p>Recipient Deactivated <i class="fa fa-check-circle"></i></p>' : NULL ;
+				break;
+			case 'activate':
+				$success_msg = isset($success_status)? '<p>Recipient Activated <i class="fa fa-check-circle"></i></p>' : NULL ;
+				break;
+			
+			default:
+				# code...
+				break;
+		}
 		$data['msg'] = $success_msg;
 		$data['content'] = 'users/recepients_v';
 		$data['user_data'] = $this->m_users->get_recepients();
@@ -39,7 +57,7 @@ class Users extends MY_Controller{
 		$query = "DELETE FROM recepients WHERE recepient_id = $recipient";
 
 		$results = $this->db->query($query);
-		redirect(base_url().'users/recipients');
+		redirect(base_url().'users/recipients/delete');
 	}
 
 	public function members(){
@@ -181,7 +199,7 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
-				$redirect_url = 'users/recipients';
+				$redirect_url = 'users/recipients/activate';
 				break;
 			case 'deactivate':
 				switch ($type) {
@@ -199,7 +217,7 @@ class Users extends MY_Controller{
 						# code...
 						break;
 				}//nested switch,for type
-				$redirect_url = 'users/recipients';
+				$redirect_url = 'users/recipients/deactivate';
 
 				break;
 			case 'users':
@@ -274,7 +292,7 @@ class Users extends MY_Controller{
 
 		// echo "<pre>";print_r($highestRow);echo "</pre>";exit;
 		$rowData = array();
-		for ($row = 3; $row < $highestRow; $row++){ 
+		for ($row = 4; $row < $highestRow; $row++){ 
 		    //  Read a row of data into an array
 		    $rowData_ = $sheet->rangeToArray('A' . $row . ':H' . $row);
 		// echo "<pre>";print_r($rowData_);echo "</pre>";
@@ -377,7 +395,7 @@ class Users extends MY_Controller{
 		
 		unlink($inputFileName);
 		// echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
-		redirect( base_url().'users/recipients/1');
+		redirect( base_url().'users/recipients/upload');
 
 	}//end of recepient upload
 

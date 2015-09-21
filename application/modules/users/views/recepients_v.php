@@ -161,7 +161,7 @@
         </div>
 
     </div>
-                        <?php $message = isset($msg)? '<p>Recipient upload was successful <i class="fa fa-check-circle"></i></p>' : NULL; echo $message;?>
+                        <?php $message = isset($msg)? $msg : NULL; echo $message;?>
 
                         <div class="panel panel-inverse panel-with-tabs" data-sortable-id="ui-unlimited-tabs-1">
                         <div class="panel-heading p-0">
