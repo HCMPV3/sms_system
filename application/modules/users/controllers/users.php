@@ -252,28 +252,29 @@ class Users extends MY_Controller{
 		echo json_encode($counties);
 	}
 
-	public function upload_recepients(){
+	public function upload_recepients($file_name = NULL){
 		//  Include PHPExcel_IOFactory
 		// include 'PHPExcel/IOFactory.php';
 		// include 'PHPExcel/PHPExcel.php';
 
-		$inputFileName = 'excel_files/garissa_sms_recepients_updated.xlsx';
+		$inputFileName = 'uploads/excel/'.$file_name;
 
-		
 		$objReader = new PHPExcel_Reader_Excel2007();
 		$objReader->setReadDataOnly(true);
 		$objPHPExcel = $objReader->load($inputFileName);
 
+		// echo "<pre>";print_r($inputFileName);exit;
 
 		$sheet = $objPHPExcel->getSheet(0); 
-		$highestRow = $sheet->getHighestRow(); 
+		$highestRow = $sheet->getHighestRow()+1; 
 		$highestColumn = $sheet->getHighestColumn();
 
-		// echo "<pre>";print_r($highestColumn);echo "</pre>";exit;
+		// echo "<pre>";print_r($highestRow);echo "</pre>";exit;
 		$rowData = array();
 		for ($row = 3; $row < $highestRow; $row++){ 
 		    //  Read a row of data into an array
-		    $rowData_ = $sheet->rangeToArray('A' . $row . ':X' . $row);
+		    $rowData_ = $sheet->rangeToArray('A' . $row . ':H' . $row);
+		// echo "<pre>";print_r($rowData_);echo "</pre>";
 		    array_push($rowData, $rowData_[0]);
 		    //  Insert row data array into your database of choice here
 		}
@@ -371,16 +372,17 @@ class Users extends MY_Controller{
 		
 					// };
 		echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
+		redirect( base_url().'users/recipients');
 
 	}//end of recepient upload
 
 	public function download_excel(){
 		// We'll be outputting an excel file
-		$filename = "excel_files/sms_recipients_template.xls";
+		$filename = "excel_files/sms_recipients_template.xlsx";
 
-		$excel2 = PHPExcel_IOFactory::createReader('Excel5');
+		$excel2 = PHPExcel_IOFactory::createReader('Excel2007');
     	$excel2=$objPHPExcel= $excel2->load($filename);
-    	$objWriter = PHPExcel_IOFactory::createWriter($excel2, 'Excel5');
+    	$objWriter = PHPExcel_IOFactory::createWriter($excel2, 'Excel2007');
 
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -397,7 +399,7 @@ class Users extends MY_Controller{
 	public function upload_excel(){
 		// echo "<pre>";print_r($this->input->post());echo "</pre>";exit;
 		// ini_set('memory_limit', '1024M'); // or you could use 1G
-		$config['upload_path'] = 'excel_files/';
+		$config['upload_path'] = 'uploads/excel/';
 		$config['allowed_types'] = 'xls|xlsx';
 		$config['max_size']	= '2048';
 
@@ -412,7 +414,11 @@ class Users extends MY_Controller{
 		else
 		{
 			// $data = array('upload_data' => $this->upload->data());
-
+			// echo "<pre>";print_r($this->upload->data());echo "</pre>";
+			$result = $this->upload->data();
+			// echo "<pre>";print_r($result['file_name']);echo "</pre>";
+			// redirect(base_url().'users/upload_excel/'.);
+			$this->upload_recepients($result['file_name']);
 			echo "I worked";
 		}
 	}
