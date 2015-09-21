@@ -310,7 +310,7 @@
                                                          echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
                                                          echo " <td>
                                                                 <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
-                                                                </td>"
+                                                                </td>";
                                                          /*echo "<td>
                                                                 
                                                                 </td>";*/
