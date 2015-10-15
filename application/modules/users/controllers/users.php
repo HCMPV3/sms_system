@@ -70,9 +70,12 @@ class Users extends MY_Controller{
 
 	public function categories($status = NULL){
 		$data['content'] = 'users/category_v';
-		$data['category_data'] = $this->m_users->get_categories();
+		$category_data = $this->m_users->get_categories();
+		$recepient_data = $this->m_users->get_category_recepients();
+		$data['category_data'] = $category_data;
+		$data['recepient_data'] = $recepient_data;
 		$data['active'] = 'categories';
-		// echo "<pre>";print_r($data['category_data']);echo "</pre>";exit;
+		// echo "<pre>";print_r($category_data);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 

@@ -104,6 +104,21 @@ class M_users extends MY_Model
 		return $result -> result_array();
 	}
 
+	public function get_category_recepients(){
+		$query = "
+		SELECT 
+		    c.category,
+		    c.id as category_id,
+		    COUNT(r.recepient_id) as recipients,
+		    c.status
+		FROM
+		    categories c,recepients r
+		WHERE c.id = r.category_id;
+		";
+		$result = $this->db->query($query);
+		return $result -> result_array();
+	}
+
 	public function get_users(){
 		$query = "
 		SELECT * from users

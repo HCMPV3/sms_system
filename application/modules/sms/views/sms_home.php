@@ -45,7 +45,7 @@
                     <td><b>Sub County</b></td>
                     <td>
                         <select class="form-control" id="district" name="district">
-                                <option>Select a Subcounty</option>
+                                <option value="0">Select a Subcounty</option>
                         </select>
                     </td>
                 </tr>
@@ -157,7 +157,7 @@ $(document).ready(function(){
             console.log(msg);
             $(".send_sms").html('<i class="fa fa-check"></i> SMS Sent');
             $("#sms_message").val('');
-            location.reload();
+            // location.reload();
         }
     });//end of ajax
     }//end of else

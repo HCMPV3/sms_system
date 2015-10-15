@@ -34,6 +34,7 @@ class Sms extends MY_Controller{
 		$county = $this->input->post("county");
 		$district = $this->input->post("district");
 		$user_id = $this->session->userdata('userid');
+		$district = ($district>0)? $district: NULL;
 		// echo $district;exit;
 		/*if ($county=='0') {
 			echo "No county selected";
@@ -58,15 +59,28 @@ class Sms extends MY_Controller{
 			);
 		array_push($sms_data,$sms_data_);
 		$this->db->insert_batch('sms_messages',$sms_data);
-
+		// echo "This :" . $district;exit;
 		$phone_numbers = $this->m_users->get_numbers($category,$county,$district);
-		// echo "<pre>";print_r($phone_numbers);exit;
+		$compulsory_numbers = $this->m_users->get_numbers(9,$county,$district);
+		echo "<pre>";print_r($phone_numbers);
+		$numbers = array();
+		$stringed_numbers = NULL;
+
 		foreach ($phone_numbers as $key => $user_no)
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
 			$user_num = $user_no['phone_no'];
 			file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
+			$stringed_numbers = $stringed_numbers."+".$user_num;
+			array_push($numbers, $user_num);
 		}
+		// echo "<pre>";print_r($numbers);
+		$stringed_numbers = implode("+", array_values($numbers));
+		// echo "<pre>This ".$stringed_numbers;
+		// file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$stringed_numbers&text=$message");
+		$stringed_numbers = urlencode($stringed_numbers);
+		// echo $plus;exit;
+		// echo "http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$stringed_numbers&text=$message";
 		echo "I worked";
 		}
 		else{

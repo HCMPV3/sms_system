@@ -18,7 +18,7 @@
 <div id="content" class="content">
 <h1 class="page-header">Category Management<small></small></h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
             <!-- <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Add Category</a> -->
             <!-- <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal">Existent Categories</a> -->
@@ -33,6 +33,7 @@
                             <thead>
                                 <tr>
                                     <th>Category Name</th>
+                                    <th>Recipients</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,9 +42,15 @@
                                     <?php 
                                     foreach ($category_data as $key) {
                                         $name = $key['category'];
-
+                                        $census = " - ";
+                                        foreach ($recepient_data as $rec) {
+                                            if ($rec['category_id'] == $key['id']) {
+                                                $census = $rec['recipients'];
+                                            }
+                                        }
                                         echo "<tr>";
-                                         echo "<td><div id=\"category_name_".$key['id']."\">".$key['category']."</div></td><td>";
+                                         echo "<td><div id=\"category_name_".$key['id']."\">".$key['category']."</div></td>";
+                                         echo "<td><div id=\"category_census\">".$census."</div></td><td>";
                                          if ($key['status'] == 1) {
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
@@ -64,7 +71,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-5">
             <!-- <button type="button" class="btn btn-success m-r-5 m-b-5">Add User</button> -->
             <!-- <a href="#modal-dialog" class="btn btn-sm btn-success margin-kiasi" data-toggle="modal"></a> -->
             <div class="panel-new panel-inverse ">
