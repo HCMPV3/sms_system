@@ -78,14 +78,14 @@ class Sms extends MY_Controller{
 		// $compulsory_flat = call_user_func_array('array_merge', array_map('array_values', $compulsory));
 		// array_push($phone_numbers, $compulsory_flat);
 
-		echo "<pre>";print_r($phone_numbers);
+		// echo "<pre>";print_r($phone_numbers);
 		$numbers = array();
 		$stringed_numbers = NULL;
 
 		foreach ($phone_numbers as $key => $user_no)
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
-			// $user_num = $user_no['phone_no'];
+			$user_num = $user_no['phone_no'];
 			file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
 			// $stringed_numbers = $stringed_numbers."+".$user_num;
 			// array_push($numbers, $user_num);
