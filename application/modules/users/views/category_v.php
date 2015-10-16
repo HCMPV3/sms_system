@@ -51,6 +51,8 @@
                                         echo "<tr>";
                                          echo "<td><div id=\"category_name_".$key['id']."\">".$key['category']."</div></td>";
                                          echo "<td><div id=\"category_census\">".$census."</div></td><td>";
+                                         echo "<div class=\"col-md-4 rename_div_".$key['id']."\"><a href=\"#modal-dialog\"  data-toggle=\"modal\" class=\"rename btn btn-sm btn-success\" id=\"".$key['category']."\" data-cat = \"category_name_".$key['id']."\" data-cat-id =".$key['id']." data-cat = \"rename_btn_".$key['id']."\">Rename</a></div>";
+                                         
                                          if ($key['status'] == 1) {
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
@@ -62,7 +64,6 @@
                                          }
                                          
                                          // echo "<td><a class=\"btn btn-sm btn-success update\" href=".base_url().'users/update_category/'.$key['id']." data-name = ".$key['category'].">Update</a></td>";
-                                         echo "<div class=\"col-md-4 rename_div_".$key['id']."\"><a href=\"#modal-dialog\"  data-toggle=\"modal\" class=\"rename btn btn-sm btn-success\" id=\"".$key['category']."\" data-cat = \"category_name_".$key['id']."\" data-cat-id =".$key['id']." data-cat = \"rename_btn_".$key['id']."\">Rename</a></div>";
                                          if ($key['status'] != 2) {
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
