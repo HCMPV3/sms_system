@@ -42,7 +42,7 @@ class Template extends MY_Controller
 		// $data['sms_count'] = $r_sms[0]['recieving_sms'];
 		$data['all_users'] = $all_users[0]['all_users'];
 		$data['content'] = isset($data['content'])? $data['content']:'template_default';
-		// echo "<pre>";print_r($data['active_users']);exit;
+		// echo "<pre>";print_r($data);exit;
 		$this ->load ->view('template',$data);
 	}
 

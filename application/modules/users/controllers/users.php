@@ -49,7 +49,7 @@ class Users extends MY_Controller{
 		$data['county_data'] = $this->m_users->get_counties();
 		$data['usertypes'] = $this->m_users->get_usertypes();
 		$data['active'] = 'recipients';
-		// echo "<pre>";print_r($data['user_data_faulty']);echo "</pre>";exit;
+		// echo "<pre>";print_r($data['category_data']);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
@@ -75,7 +75,7 @@ class Users extends MY_Controller{
 		$data['category_data'] = $category_data;
 		$data['recepient_data'] = $recepient_data;
 		$data['active'] = 'categories';
-		// echo "<pre>";print_r($category_data);echo "</pre>";exit;
+		// echo "<pre>";print_r($recepient_data);echo "</pre>";exit;
 		$this ->template->call_admin_template($data);
 	}
 
@@ -275,12 +275,13 @@ class Users extends MY_Controller{
 		echo json_encode($counties);
 	}
 
-	public function upload_recepients($file_name = NULL){
+	public function upload_recepients($file_name = NULL,$category = NULL){
 		//  Include PHPExcel_IOFactory
 		// include 'PHPExcel/IOFactory.php';
 		// include 'PHPExcel/PHPExcel.php';
 
 		// $inputFileName = 'excel_files/garissa_sms_recepients_updated.xlsx';
+		// echo $category;exit;
 		$inputFileName = 'uploads/excel/'.$file_name;
 
 		$objReader = new PHPExcel_Reader_Excel2007();
@@ -386,7 +387,7 @@ class Users extends MY_Controller{
 						// 'email_status' => 1,
 						'sms_status' => $sms_status,
 						'user_type' => 1,
-						'category_id' => 1,
+						'category_id' => $category,
 						'district_id'=>$district_id,
 						'fault_index'=>$fault_index
 						);
@@ -428,6 +429,7 @@ class Users extends MY_Controller{
 		$config['upload_path'] = 'uploads/excel/';
 		$config['allowed_types'] = 'xls|xlsx';
 		$config['max_size']	= '2048';
+		$category = $this->input->post("category");
 
 		$res = $this->load->library('upload', $config);
 		// echo "<pre>";print_r($res);exit;
@@ -435,7 +437,7 @@ class Users extends MY_Controller{
 		if ( ! $this->upload->do_upload("recipient_excel"))
 		{
 			echo "<pre>";print_r($this->upload->display_errors());echo "</pre>";
-			echo "I didnt work";
+			// echo "I didnt work";
 		}
 		else
 		{
@@ -444,9 +446,16 @@ class Users extends MY_Controller{
 			$result = $this->upload->data();
 			// echo "<pre>";print_r($result['file_name']);echo "</pre>";
 			// redirect(base_url().'users/upload_excel/'.);
-			$this->upload_recepients($result['file_name']);
-			echo "I worked";
+			$this->upload_recepients($result['file_name'],$category);
+			// echo "I worked";
 		}
+	}//end of upload excel
+
+	public function category_deletion($category_id){
+		$deletion = $this ->m_users ->delete_category($category_id);
+		$recipient_deletion = $this ->m_users ->delete_recipients_categorical($category_id);
+
+		redirect(base_url().'users/categories');
 	}
 }
 ?>

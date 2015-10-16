@@ -145,8 +145,20 @@
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
+                                        <td class="col-md-6"><label><b>Category Selection</b></label></td>
+                                        <td class="col-md-6">
+                                            <select class="form-control" id="category" required="required" name="category">
+                                                    <option value="0">Select a Category</option>
+                                                    <?php foreach ($category_data as $key) {?>
+                                                    <option value="<?php echo $key['id']; ?>" data-cat="<?php echo $key['category']; ?>"><?php echo $key['category']; ?></option>
+                                                    <?php } ?>
+                                            </select>
+                                        </td>
+                                </tr>
+
+                                <tr>
                                     <td><label>Choose file:</label></td>
-                                    <td><input type="file" name="recipient_excel" size="20"></td>
+                                    <td><input type="file" name="recipient_excel" size="20" required="required"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><button type="submit" value='upload' name="submit">Upload</button></td>

@@ -61,18 +61,34 @@ class Sms extends MY_Controller{
 		$this->db->insert_batch('sms_messages',$sms_data);
 		// echo "This :" . $district;exit;
 		$phone_numbers = $this->m_users->get_numbers($category,$county,$district);
-		$compulsory_numbers = $this->m_users->get_numbers(9,$county,$district);
-		echo "<pre>";print_r($phone_numbers);
+		$number_count = count($phone_numbers);
+		$compulsory_categories = $this -> m_users -> get_compulsory();
+		$compulsory = array();
+		$compulsory_count = count($compulsory_categories);
+		for ($i=0; $i < $compulsory_count; $i++) { 
+			$compulsory_numbers = $this->m_users->get_numbers($compulsory_categories[$i]['category_id'],$county,$district);
+
+			foreach ($compulsory_numbers as $key) {
+				// $compulsory[]['phone_no'] = $key['phone_no'];
+				$phone_numbers[]['phone_no'] = $key['phone_no'];
+			}
+			// array_push($compulsory, $compulsory_numbers);
+		}
+		
+		// $compulsory_flat = call_user_func_array('array_merge', array_map('array_values', $compulsory));
+		// array_push($phone_numbers, $compulsory_flat);
+
+		// echo "<pre>";print_r($phone_numbers);
 		$numbers = array();
 		$stringed_numbers = NULL;
 
 		foreach ($phone_numbers as $key => $user_no)
 		{
 			// echo "<pre>";print_r($user_no['phone_no']);echo "</pre>";
-			$user_num = $user_no['phone_no'];
+			// $user_num = $user_no['phone_no'];
 			file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$user_num&text=$message");
-			$stringed_numbers = $stringed_numbers."+".$user_num;
-			array_push($numbers, $user_num);
+			// $stringed_numbers = $stringed_numbers."+".$user_num;
+			// array_push($numbers, $user_num);
 		}
 		// echo "<pre>";print_r($numbers);
 		$stringed_numbers = implode("+", array_values($numbers));

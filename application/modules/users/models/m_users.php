@@ -113,7 +113,8 @@ class M_users extends MY_Model
 		    c.status
 		FROM
 		    categories c,recepients r
-		WHERE c.id = r.category_id;
+		WHERE c.id = r.category_id
+		GROUP BY c.id
 		";
 		$result = $this->db->query($query);
 		return $result -> result_array();
@@ -185,5 +186,27 @@ class M_users extends MY_Model
 		return $result -> result_array();
 	}
 
+	public function delete_category($category_id){
+		$query = "DELETE FROM categories WHERE id = $category_id";
+
+		$result = $this -> db ->query($query);
+		return $result;
+	}
+
+	public function delete_recipients_categorical($category_id){
+		$query = "DELETE FROM recepients WHERE category_id = $category_id";
+
+		$result = $this->db->query($query);
+
+		return $result;
+	}
+
+	public function get_compulsory(){
+		$query = "SELECT * FROM compulsory_recepients";
+
+		$result = $this->db->query($query);
+
+		return $result -> result_array();
+	}
 }
 ?>

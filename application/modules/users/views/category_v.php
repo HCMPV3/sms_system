@@ -55,13 +55,20 @@
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
                                          echo "<div class=\"col-md-4\"><a id=".base_url().'users/change_status/category/deactivate/'.$key['id']." class=\"cat-btns btn btn-sm btn-danger\" data-toggle=\"modal\" href=\"#modal-confirm-cat\" data-status=\"active\">Deactivate</a></div>";
-                                         }else{
+                                         }elseif($key['status'] == 2){ echo "<div class=\"col-md-4\"></div>";}else{
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-success\" href=".base_url().'users/change_status/category/activate/'.$key['id'].">Activate</a></div>";
                                          // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-success\" href=".base_url().'users/change_status/category/activate/'.$key['id'].">Activate</a></div>";
                                          echo "<div class=\"col-md-4\"><a id=".base_url().'users/change_status/category/activate/'.$key['id']." class=\"cat-btns btn btn-sm btn-success\" data-toggle=\"modal\" href=\"#modal-confirm-cat\" data-status=\"inactive\">Activate</a></div>";
                                          }
+                                         
                                          // echo "<td><a class=\"btn btn-sm btn-success update\" href=".base_url().'users/update_category/'.$key['id']." data-name = ".$key['category'].">Update</a></td>";
-                                         echo "<div class=\"col-md-4 rename_div_".$key['id']."\"><a href=\"#modal-dialog\"  data-toggle=\"modal\" class=\"rename btn btn-sm btn-success\" id=\"".$key['category']."\" data-cat = \"category_name_".$key['id']."\" data-cat-id =".$key['id']." data-cat = \"rename_btn_".$key['id']."\">Rename</a></div></td>";
+                                         echo "<div class=\"col-md-4 rename_div_".$key['id']."\"><a href=\"#modal-dialog\"  data-toggle=\"modal\" class=\"rename btn btn-sm btn-success\" id=\"".$key['category']."\" data-cat = \"category_name_".$key['id']."\" data-cat-id =".$key['id']." data-cat = \"rename_btn_".$key['id']."\">Rename</a></div>";
+                                         if ($key['status'] != 2) {
+                                         // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
+                                         // echo "<div class=\"col-md-4\"><a class=\"cat-btns btn btn-sm btn-danger\" href=".base_url().'users/change_status/category/deactivate/'.$key['id'].">Deactivate</a></div>";
+                                         echo "<div class=\"col-md-4\"><a id=".base_url().'users/category_deletion/'.$key['id']." class=\"delete btn btn-sm btn-danger\" data-toggle=\"modal\" href=\"#modal-delete-cat\" data-status=\"active\">Delete</a></div>";
+                                         }
+                                         echo "</td>";
                                         echo "</tr>";
                                      } ?>
                             </tbody>
@@ -144,12 +151,31 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title">Deactivate Category Confirmation</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body status-modal-body">
                         <!-- <p>Are you sure you want to deactivate this category? All recipients in this category will no longer receive SMS messages</p> -->
                     </div>
                     <div class="footer">
                         <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
                         <a href="" class="cat_deactivate btn btn-sm btn-success submit">Proceed with Deactivation</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-delete-cat">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Delete Category Confirmation</h4>
+                    </div>
+                    <div class="modal-body status-modal-body">
+                        <p>Are you sure you want to delete this category? All recipients in this category will be deleted and will no longer receive SMS messages</p>
+                    </div>
+                    <div class="footer">
+                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                        <a href="" class="cat_delete btn btn-sm btn-success submit">Proceed with Deletion</a>
                     </div>
 
                 </div>
@@ -180,12 +206,12 @@
             var status = $(this).attr("data-status")
             // alert(href);
             if (status == "inactive") {
-            $(".modal-body").html("Are you sure you want to activate this category? Recipients will now receive SMS messages");
+            $(".status-modal-body").html("Are you sure you want to activate this category? Recipients will now receive SMS messages");
             $(".cat_deactivate").html("Proceed with Activation");
             $(".cat_deactivate").removeClass("btn-danger");
             $(".cat_deactivate").addClass("btn-success");
             }else{
-            $(".modal-body").html("Are you sure you want to deactivate this category? Recipients in this category will no longer receive SMS messages");
+            $(".status-modal-body").html("Are you sure you want to deactivate this category? Recipients in this category will no longer receive SMS messages");
             $(".cat_deactivate").html("Proceed with Deactivation");
             $(".cat_deactivate").removeClass("btn-success");
             $(".cat_deactivate").addClass("btn-danger");
@@ -193,7 +219,12 @@
             $(".cat_deactivate").attr("href",href);
             // window.location.href = href;
         });
-
+        
+        $(".delete").click(function(e){
+             e.preventDefault();
+            var href = $(this).attr("id");
+            $(".cat_delete").attr("href",href);
+        });
 
     });
 </script>

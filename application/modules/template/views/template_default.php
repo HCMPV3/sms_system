@@ -33,12 +33,12 @@
         <div class="col-md-6 col-sm-6">
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-mobile fa-fw"></i></div>
-                <div class="stats-title">Recipients</div>
+                <div class="stats-title">Active Recipients</div>
                 <div class="stats-number"><?php echo $sms_count;?></div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 76.3%;"></div>
                 </div>
-                <div class="stats-desc">There are <?php echo $sms_count;?> people listed as recipients</div>
+                <div class="stats-desc">There are <?php echo $sms_count;?> people receiving messages</div>
             </div>
         </div>
 
