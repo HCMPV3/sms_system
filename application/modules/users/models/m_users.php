@@ -34,7 +34,7 @@ class M_users extends MY_Model
 				districts d ON d.id = r.district_id
 					LEFT JOIN
 				counties ct ON d.county = ct.id
-				WHERE c.status = 1 AND fault_index = 0
+				WHERE c.status = 1 OR c.status = 2 AND fault_index = 0
 				ORDER BY 
 				r.fname
 		";
