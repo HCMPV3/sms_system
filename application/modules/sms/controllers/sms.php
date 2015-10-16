@@ -78,7 +78,7 @@ class Sms extends MY_Controller{
 		// $compulsory_flat = call_user_func_array('array_merge', array_map('array_values', $compulsory));
 		// array_push($phone_numbers, $compulsory_flat);
 
-		// echo "<pre>";print_r($phone_numbers);
+		echo "<pre>";print_r($phone_numbers);
 		$numbers = array();
 		$stringed_numbers = NULL;
 
