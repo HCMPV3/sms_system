@@ -275,14 +275,14 @@ class Users extends MY_Controller{
 		echo json_encode($counties);
 	}
 
-	public function upload_recepients($file_name = NULL,$category = NULL){
+	public function upload_recepients($file_name = NULL,$category = NULL,$upload_id = NULL){
 		//  Include PHPExcel_IOFactory
 		// include 'PHPExcel/IOFactory.php';
 		// include 'PHPExcel/PHPExcel.php';
 
 		// $inputFileName = 'excel_files/garissa_sms_recepients_updated.xlsx';
 		// echo $category;exit;
-		$inputFileName = 'uploads/excel/'.$file_name;
+		$inputFileName = 'uploaded_files/excel/'.$file_name;
 
 		$objReader = new PHPExcel_Reader_Excel2007();
 		$objReader->setReadDataOnly(true);
@@ -327,27 +327,28 @@ class Users extends MY_Controller{
 			$facility_code = $r_data[2];
 
 			$query = "SELECT * FROM facilities WHERE facility_code = '$facility_code'";
-			// $query = "SELECT * FROM districts WHERE district = '$district'";
-
-			$result = $this->db->query($query)->result_array();
-			// $district_name = $result[0]['district'];
-
+			$result = $this->db->query($query)->result_array();//FACILITY CODE SEARCH
 			// echo "<pre>";print_r($result);echo "</pre>";
+
 			if (empty($result)) {
 			$queryy = "SELECT * FROM districts WHERE district = '$district'";
 			$resultt = $this->db->query($queryy)->result_array();
 				// echo $r_data[0]."</br>";
 				// $query = "";
+			// echo "<pre>";print_r($resultt);
 			if (empty($resultt)) {
 				$fault_index = 1;
-				$status = 2;
+				// $status = 2;
 				$district_id = NULL;
 			}else{
-				$district_id = $result[0]['id'];
+				$district_id = $resultt[0]['id'];
 				$fault_index = 0;
+			
 				// echo "<pre>";print_r($resultt); echo "</pre>";
-			}
+			}//district name match
+
 			}//if no facility code match
+
 			else{
 				$district_id = $result[0]['district'];
 			}
@@ -357,14 +358,16 @@ class Users extends MY_Controller{
 					if (isset($phone)) {
 						$phone = preg_replace('/\s+/', '', $phone);
 						$phone = ltrim($phone, '0');
-						$phone = '254'.$phone;
+						// echo "<pre>".substr($phone, 0,3);
+						if (substr($phone, 0,3) != '254') {
+							$phone = '254'.$phone;
+						}
 					}else{
 						$phone = NULL;
 					}
 					
 					$email = $r_data[6];
 					$number_length = isset($phone)?strlen($phone):0;
-					// echo $phone;
 					// echo "Number Length:  ".$number_length;
 					if ($number_length != 12) {
 						if (isset($fault_index)) {
@@ -373,10 +376,12 @@ class Users extends MY_Controller{
 						}else{
 							$fault_index = 2;
 						}
+							$fault_index = 2;//overriding both district and phone error as district is not necessarily necessary
 							$status = 2;
 					}
 
 					$fault_index = isset($fault_index)? $fault_index:0;
+					// echo "<pre>";print_r($phone.' '.$fault_index);
 
 					$sms_status = isset($status)? $status: 1;
 					$rec = array();
@@ -389,15 +394,19 @@ class Users extends MY_Controller{
 						'user_type' => 1,
 						'category_id' => $category,
 						'district_id'=>$district_id,
-						'fault_index'=>$fault_index
+						'fault_index'=>$fault_index,
+						'upload_id'=>$upload_id
 						);
 
 					array_push($rec, $rec_data);
+					// echo "<pre>";print_r($rec);
+
 					$insertion = $this->db->insert_batch('recepients',$rec);
 				// echo "QUERY SUCCESSFUL. ".$insertion." ".mysql_insert_id()."</br>";
 		}
-		
-		unlink($inputFileName);
+					// exit;
+				
+		// unlink($inputFileName);
 		// echo "QUERY SUCCESSFUL. LAST ID INSERTED: ".mysql_insert_id(); exit;
 		redirect( base_url().'users/recipients/upload');
 
@@ -426,9 +435,18 @@ class Users extends MY_Controller{
 	public function upload_excel(){
 		// echo "<pre>";print_r($this->input->post());echo "</pre>";exit;
 		// ini_set('memory_limit', '1024M'); // or you could use 1G
-		$config['upload_path'] = 'uploads/excel/';
+		// echo "<pre>"; print_r($this->session->all_userdata());exit;
+		// echo "<pre>";print_r($this->input->post());exit;
+		$user_id = $this->session->userdata('userid');
+		$config['upload_path'] = 'uploaded_files/excel/';
 		$config['allowed_types'] = 'xls|xlsx';
 		$config['max_size']	= '2048';
+		$name = 'upload_'.$user_id.'_'.date('d-m-Y_H:m:s');
+		// $config['file_name'] = $name;
+		$category = $this->input->post('category');
+		$description = $this->input->post('uploaded_description');
+		// echo $description;exit;
+		// echo $config['file_name'];exit;
 		$category = $this->input->post("category");
 
 		$res = $this->load->library('upload', $config);
@@ -442,11 +460,25 @@ class Users extends MY_Controller{
 		else
 		{
 			// $data = array('upload_data' => $this->upload->data());
-			// echo "<pre>";print_r($this->upload->data());echo "</pre>";
+
 			$result = $this->upload->data();
+			$upload_data = array();
+			$upload_data_ = array(
+				'upload_name' => $result['file_name'], 
+				'uploader' => $user_id,
+				'file_size' => $result['file_size'],
+				'category' => $category,
+				'description' => $description
+				);
+			array_push($upload_data, $upload_data_);
+			$this->db->insert_batch('uploads',$upload_data);
+			$upload_id = mysql_insert_id();
+			// echo "<pre>";print_r($this->upload->data());echo "</pre>";exit;
 			// echo "<pre>";print_r($result['file_name']);echo "</pre>";
 			// redirect(base_url().'users/upload_excel/'.);
-			$this->upload_recepients($result['file_name'],$category);
+			// $result['file_name'] = 'upload_'.$user_id.'_'.date('d-m-Y_H:m:s');
+			// echo "<pre>";print_r($result);exit;
+			$this->upload_recepients($result['file_name'],$category,$upload_id);
 			// echo "I worked";
 		}
 	}//end of upload excel

@@ -30,17 +30,22 @@ class Template extends MY_Controller
 	}
 
 	public function call_admin_template($data = NULL){
-		$all_recepients = $this->template_m->get_all_recepient_count();
+		$all_recepients = $this->template_m->get_all_recieving_sms();
 		// $r_emails = $this->template_m->get_all_recieving_emails();
 		// $r_sms = $this->template_m->get_all_recieving_sms();
 		$r_sms = $this->m_users->get_recepients();
-		$data['sms_count'] = count($r_sms);
-		$all_users = $this->template_m->get_all_user_count();
+		// echo "<pre>";print_r($all_recepients);exit;
+		// $data['sms_count'] = count($all_recepients);
+		$data['sms_count'] = $all_recepients[0]['recieving_sms'];;
 
-		$data['recepients_count'] = $all_recepients[0]['recepient_count'];
+		$all_users = $this->template_m->get_active_user_count();
+
+		$data['recepients_count'] = $all_recepients[0]['recieving_sms'];
 		// $data['emails_count'] = $r_emails[0]['recieving_emails'];
 		// $data['sms_count'] = $r_sms[0]['recieving_sms'];
-		$data['all_users'] = $all_users[0]['all_users'];
+		$data['all_users'] = $all_users[0]['active_users'];
+
+		// echo "<pre>";print_r(count($data['all_users']));exit;
 		$data['content'] = isset($data['content'])? $data['content']:'template_default';
 		// echo "<pre>";print_r($data);exit;
 		$this ->load ->view('template',$data);

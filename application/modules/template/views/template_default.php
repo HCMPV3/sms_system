@@ -44,7 +44,7 @@
 
         <div class="col-md-6 col-sm-6">
             <div class="widget widget-stats bg-blue">
-                <div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
+                <div class="stats-icon stats-icon-lg"><i class="fa fa-desktop fa-fw"></i></div>
                 <div class="stats-title">Administrators</div>
                 <div class="stats-number"><?php echo $all_users; ?></div>
                 <div class="stats-progress progress">
@@ -84,15 +84,14 @@
                             <thead>
                                 <tr>
                                     <th>Full Names</th>
-                                    <!-- <th>Last Name</th> -->
-                                    <th>County</th>
-                                    <th>Sub County</th>
                                     <th>Category</th>
                                     <!-- <th>Email</th> -->
                                     <th>Phone</th>
                                     <!-- <th>Email Recieval</th> -->
                                     <!-- <th>Action Email</th> -->
                                     <th>SMS Receival</th>
+                                    <th>County</th>
+                                    <th>Sub County</th>
                                     <th>Action</th>
                                     <th>Date added</th>
                                     <!-- <th>Delete</th> -->
@@ -104,12 +103,9 @@
                                     foreach ($user_data as $key) {
                                         echo "<tr>";
                                          echo "<td>".$key['fname']."</td>";
-                                         $county = isset($key['county'])? $key['county'] : ' - ';
-                                         echo "<td>".$county."</td>";
-                                         $district = isset($key['district'])? $key['district'] : ' - ';
-                                         echo "<td>".$district."</td>";
-                                         // echo "<td>".$key['lname']."</td>";
                                          echo "<td>".$key['category']."</td>";
+                                         
+                                         // echo "<td>".$key['lname']."</td>";
                                          // echo "<td>".$key['email']."</td>";
                                          echo "<td>".$key['phone_no']."</td>";
                                       /*   if ($key['email_status'] == 2) {
@@ -132,13 +128,19 @@
                                             $stmt = "Yes";
                                             $status = "<a class=\"btn btn-info fxwdth\" href=".base_url().'users/change_status/deactivate/sms/'.$key['recepient_id'].">Deactivate</a>";    
                                          }
-                                         echo "<td>".$stmt."</td>
-                                                <td>
+                                         echo "<td>".$stmt."</td>";
+                                         $county = isset($key['county'])? $key['county'] : ' - ';
+                                         echo "<td>".$county."</td>";
+                                         $district = isset($key['district'])? $key['district'] : ' - ';
+                                         echo "<td>".$district."</td>";
+
+                                         echo "<td>
                                                 ".$status."
                                                 <a class=\"btn btn-success\" href=".base_url().'users/delete_recipient/'.$key['recepient_id'].">Delete</a>
                                                 </td>
                                                 ";
-                                         echo "<td>".date("Y-m-d",strtotime($key['created_at']))."</td>";
+
+                                         echo "<td>".date("d M Y",strtotime($key['created_at']))."</td>";
                                          /*echo "<td>
                                                 
                                                 </td>";*/

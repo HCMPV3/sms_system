@@ -141,19 +141,24 @@
                         <h4 class="modal-title">Upload Recipient Excel</h4>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open_multipart('users/upload_excel'); ?>
+                        <?php $attr = array('id'=>'upload_form'); echo form_open_multipart('users/upload_excel',$attr); ?>
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                        <td class="col-md-6"><label><b>Category Selection</b></label></td>
-                                        <td class="col-md-6">
-                                            <select class="form-control" id="category" required="required" name="category">
-                                                    <option value="0">Select a Category</option>
-                                                    <?php foreach ($category_data as $key) {?>
-                                                    <option value="<?php echo $key['id']; ?>" data-cat="<?php echo $key['category']; ?>"><?php echo $key['category']; ?></option>
-                                                    <?php } ?>
-                                            </select>
-                                        </td>
+                                    <td class="col-md-6"><label><b>Category Selection</b></label></td>
+                                    <td class="col-md-6">
+                                        <select class="form-control" id="category" required="required" name="category">
+                                                <option value="">Select a Category</option>
+                                                <?php foreach ($category_data as $key) {?>
+                                                <option value="<?php echo $key['id']; ?>" data-cat="<?php echo $key['category']; ?>"><?php echo $key['category']; ?></option>
+                                                <?php } ?>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><label>Upload description</label></td>
+                                    <td><textarea class="form-control" name="upload_description" placeholder="Describe the contents of the upload,e.g,Health Care Workers"></textarea></td>
                                 </tr>
 
                                 <tr>
@@ -161,7 +166,7 @@
                                     <td><input type="file" name="recipient_excel" size="20" required="required"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><button type="submit" value='upload' name="submit">Upload</button></td>
+                                    <td colspan="2"><button id="submit_upload" class="btn btn-success m-r-5" type="submit" value='upload' name="submit"><i class="fa fa-upload"></i> Upload</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -352,6 +357,10 @@
             "sSwfPath": "<?php echo base_url().'assets/template/plugins/DataTables/TableTools/swf/copy_csv_xls_pdf.swf' ?>"
         }
     });
+
+        $('#upload_form').submit(function(){
+            $('#submit_upload').html("<i class=\"fa fa-circle-o-notch fa-spin\"></i> Uploading");
+        });
         // $('.category-selection').hide();
         // $('.c-selection').hide();
         $('.sc-selection').hide();

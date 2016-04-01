@@ -44,7 +44,7 @@ class Template_m extends MY_Model
 	}*/
 
 	public function get_all_recieving_sms(){
-		$query = "SELECT COUNT(recepient_id) AS recieving_sms FROM recepients WHERE sms_status = 1";
+		$query = "SELECT COUNT(*) AS recieving_sms FROM recepients WHERE sms_status = 1";
 
 		$result = $this -> db->query($query);
 

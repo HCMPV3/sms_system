@@ -142,7 +142,7 @@ $(document).ready(function(){
     // alert(sms_body);return;
         $.ajax({
         type: "POST",
-        url:"<?php echo base_Url().'sms/send_sms/NULL/NULL/category'; ?>",
+        url:"<?php echo base_url().'sms/send_sms/NULL/NULL/category'; ?>",
         data:{
             sms_body:sms_body,
             category:category,

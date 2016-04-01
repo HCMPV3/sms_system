@@ -74,6 +74,13 @@
                 </a>
             </li>
 
+            <li class="has-sub <?php if(isset($active) && $active=='uploads'){echo "active";}; ?>">
+                <a href="<?php echo base_url().'uploads'; ?>">
+                    <i class="fa fa-cloud-upload"></i> 
+                    <span>Uploaded Files</span>
+                </a>
+            </li>
+
             <!--
             <li class="has-sub">
                 <a href="javascript:;">

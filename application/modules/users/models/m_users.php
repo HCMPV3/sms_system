@@ -34,7 +34,7 @@ class M_users extends MY_Model
 				districts d ON d.id = r.district_id
 					LEFT JOIN
 				counties ct ON d.county = ct.id
-				WHERE c.status = 1 OR c.status = 2 AND r.fault_index = 0
+				WHERE c.status = 1 AND r.fault_index NOT IN (2)
 				ORDER BY 
 				r.fname
 		";
@@ -113,7 +113,7 @@ class M_users extends MY_Model
 		    c.status
 		FROM
 		    categories c,recepients r
-		WHERE c.id = r.category_id
+		WHERE c.id = r.category_id AND r.sms_status = 1
 		GROUP BY c.id
 		";
 		$result = $this->db->query($query);
