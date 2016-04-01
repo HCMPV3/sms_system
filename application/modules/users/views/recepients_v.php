@@ -188,7 +188,7 @@
                                 <ul class="nav nav-tabs nav-tabs-inverse">
                                     <li class="prev-button"><a href="javascript:;" data-click="prev-tab" class="text-success"><i class="fa fa-arrow-left"></i></a></li>
                                     <li class="active"><a href="#nav-tab-1" data-toggle="tab">Active Recipients</a></li>
-                                    <li class=""><a href="#nav-tab-2" data-toggle="tab">Recipients Missing Information</a></li>
+                                    <!-- <li class=""><a href="#nav-tab-2" data-toggle="tab">Recipients Missing Information</a></li> -->
                                    
                                     <!-- <li class="next-button"><a href="javascript:;" data-click="next-tab" class="text-success"><i class="fa fa-arrow-right"></i></a></li> -->
                                 </ul>
